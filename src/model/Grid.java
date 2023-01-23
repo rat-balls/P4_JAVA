@@ -20,14 +20,20 @@ public class Grid {
     
     public static void createGrid(){
         ArrayList<ArrayList<String>> g = new ArrayList<ArrayList<String>>();
-        ArrayList<String> column = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
-            column.add("\n+---+\n|   |\n+---+");
+        for (int col = 0; col < 6; col++) {
+            ArrayList<String> colonne = new ArrayList<>();
+            for (int li = 0; li < 7; li++) {
+                colonne.add("-");
+            }
+            g.add(colonne);
         }
-        for (int j = 0; j < 6; j++) {
-            g.add(column);
+        System.out.println("  1   2   3   4   5   6   7");
+        for (int li = 5; li >= 0; li--) {
+            for (int col = 0; col < 7; col++) {
+                System.out.print("| " + g.get(li).get(col) + " ");
+            }
+            System.out.println("|");
+            System.out.println("-----------------------------");
         }
-        System.out.println(g);
-        Plateau Pl = new Plateau(g, null);
     }
 }
