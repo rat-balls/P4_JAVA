@@ -1,8 +1,9 @@
 package model;
 
 public class IA {
-    Joueur Joueur;
-    int Difficulté;
+    
+    private Joueur Joueur;
+    private int Difficulté;
 
     public IA(model.Joueur joueur, int difficulté) {
         Joueur = joueur;

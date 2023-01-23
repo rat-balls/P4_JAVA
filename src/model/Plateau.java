@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Plateau {
     
-    ArrayList<ArrayList> Grille;
-    Pion Pion;
+    private ArrayList<ArrayList> Grille;
+    private Pion Pion;
 
     public Plateau(ArrayList<ArrayList> grille, model.Pion pion) {
         Grille = grille;

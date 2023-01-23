@@ -2,9 +2,9 @@ package model;
 
 public class Joueur {
 
-    String nom;
-    int couleur;
-    char symbole;
+    private String nom;
+    private int couleur;
+    private char symbole;
 
     public Joueur(String nom, int couleur, char symbole) {
         this.nom = nom;
