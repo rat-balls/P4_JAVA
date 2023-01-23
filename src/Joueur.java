@@ -1,4 +1,5 @@
 public class Joueur {
-    public static void main(String[] args) throws Exception {
-    }
+    private String nom;
+    private int couleur;
+    private Character symbole;
 }
