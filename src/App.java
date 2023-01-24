@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import model.Score;
-import model.Joueur;
-import model.IA;
-import model.Game;
-import model.Grid;
+import model.*;
 
 public class App {
     Joueur joueur = new Joueur(null, 0, null);
@@ -167,12 +163,4 @@ public class App {
     // ============================================================================================
     // ============================================================================================
 
-
-    public static void joueur(){
-        Grid grid = new Grid();
-        ArrayList G = grid.createGrid();
-        while(true){
-            grid.affichage(G);
-        }
-    }
 }
