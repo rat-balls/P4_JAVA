@@ -14,8 +14,8 @@ public class Game {
 
         System.out.println("Veuillez entrer votre nom.");
         String nom1 = _scan.nextLine();
-        Joueur J1 = new Joueur(nom1, 0, "@");
-        Joueur JIA = new Joueur("IA", 0, "#");
+        Joueur J1 = new Joueur(Couleur.GREEN + nom1 + Couleur.DEFO, Couleur.GREEN, Couleur.GREEN + "@" + Couleur.DEFO);
+        Joueur JIA = new Joueur(Couleur.RED + "IA" + Couleur.DEFO, Couleur.RED, Couleur.RED + "#" + Couleur.DEFO);
 
         // ça continue tant que personne n'a gagné
         while(!won){
@@ -32,7 +32,7 @@ public class Game {
             } else {
                 // IA Turn
                 System.out.println();
-                System.out.println("Tour de l'IA.");
+                System.out.println("Tour de l" + JIA.getNom() + ".");
                 System.out.println();
                 Grid.affichage(g);
                 won = Grid.checkWin(g, JIA.getSymbole());
@@ -59,11 +59,10 @@ public class Game {
 
         System.out.println("Veuillez entrer le nom du premier joueur.");
         String nom1 = _scan.nextLine();
-        Joueur J1 = new Joueur(nom1, 0, "@");
-
+        Joueur J1 = new Joueur(Couleur.GREEN + nom1 + Couleur.DEFO, Couleur.GREEN, Couleur.GREEN + "@" + Couleur.DEFO);
         System.out.println("Veuillez entrer le nom du deuxième joueur.");
         String nom2 = _scan.nextLine();
-        Joueur J2 = new Joueur(nom2, 0, "#");
+        Joueur J2 = new Joueur(Couleur.RED + nom2 + Couleur.DEFO, Couleur.RED, Couleur.RED + "#" + Couleur.DEFO);
 
         // ça continue tant que personne n'a gagné
         while(!won){

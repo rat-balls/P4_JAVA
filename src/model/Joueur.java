@@ -2,12 +2,12 @@ package model;
 
 public class Joueur {
     private String nom;
-    private int couleur;
+    private String couleur;
     private String symbole;
 
     
 
-    public Joueur(String nom, int couleur, String symbole) {
+    public Joueur(String nom, String couleur, String symbole) {
         this.nom = nom;
         this.couleur = couleur;
         this.symbole = symbole;
@@ -30,11 +30,11 @@ public class Joueur {
 
     // Couleur du joueur ==========================================================================
     // ============================================================================================
-    public int getCouleur() {
+    public String getCouleur() {
         return couleur;
     }
 
-    public void setCouleur(int couleur) {
+    public void setCouleur(String couleur) {
         this.couleur = couleur;
     }
     // ============================================================================================
