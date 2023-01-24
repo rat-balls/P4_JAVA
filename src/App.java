@@ -4,8 +4,7 @@ import java.util.Scanner;
 import model.*;
 
 public class App {
-    Joueur joueur = new Joueur();
-    Score score = new Score();
+    
     // Main =======================================================================================
     // ============================================================================================
     public static void main(String[] args) throws Exception {
@@ -71,10 +70,10 @@ public class App {
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
-                System.out.println("Jouer contre l'Ordi");
+                versusIA();
                 break;
             case "2":
-                System.out.println("Jouer contre un ami");
+                //menuContreAmi();
                 break;
             case "3":
                 System.out.println("Quitter");
@@ -84,6 +83,54 @@ public class App {
                 break;
         }
     }
+
+
+    public static void afficherMenuIA() {
+        ArrayList<String> menus = new ArrayList<>();
+        menus.add("\n-- MENU CONTRE IA --");
+        menus.add("[1] IA de niveau 1");
+        menus.add("[2] IA de niveau 2");
+        menus.add("[3] IA de niveau 3");
+        menus.add("[4] IA de niveau 4");
+        menus.add("[5] Retour");
+        for (String menu : menus) {
+            System.out.println(menu);
+        }
+    }
+
+    public static void versusIA() {
+        afficherMenuIA();
+        String choix = _scan.nextLine();
+        switch(choix) {
+            case "1":
+                initNomPlayer();
+                System.out.println("IA de niveau 1");
+                break;
+            case "2":
+                initNomPlayer();
+                System.out.println("IA de niveau 2");
+                break;
+            case "3":
+                initNomPlayer();
+                System.out.println("IA de niveau 3");
+                return;
+            case "4":
+                initNomPlayer();
+                System.out.println("IA de niveau 4");
+                break;
+            case "5":
+                break;
+        }
+    }
+
+    public static void initNomPlayer() {
+        Joueur joueur = new Joueur();
+        System.out.println("Veuillez entrer votre nom : ");
+        String nom = _scan.nextLine();
+        joueur.setNom(nom);
+        System.out.println(joueur.getNom());
+    }
+
     // ============================================================================================
     // ============================================================================================
 
@@ -130,18 +177,6 @@ public class App {
     // Scanner ====================================================================================
     // ============================================================================================
     private static Scanner _scan = new Scanner(System.in);
-    // ============================================================================================
-    // ============================================================================================
-
-
-
-
-    // Override ===================================================================================
-    // ============================================================================================
-    @Override
-    public String toString() {
-        return joueur.getNom() + " : " + score;
-    }
     // ============================================================================================
     // ============================================================================================
 
