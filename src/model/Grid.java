@@ -40,17 +40,22 @@ public class Grid {
                 coor = Integer.parseInt(coorString);
                 error = false;
             } catch (NumberFormatException e) {
-                System.out.println(err2);
-                error = true;
+                return modif(g,err2);
             }
         }
-        int li = 0;
-        while((g.get(li).get(coor-1)) != "-"){
-            if(li == 6){
+
+        int li;
+        for(li = 5; li > 0 ; li -- ){
+            if((g.get(li).get(coor-1)) == "-" ){
+                if((g.get(li-1).get(coor-1)) != "-"){
+                    break;
+                }
+            }
+            if(li == 0 || !g.get(li).contains("-")){
                 return modif(g,err1);
             }
-            li = li + 1;   
         }
+        
         if(coor < 1 || coor > 7) {
             System.out.println(err1);
             return modif(g,err1);

@@ -7,7 +7,7 @@ public class App {
         System.out.println();
         System.out.println();
         ArrayList g = grid.createGrid();
-        for(int iii = 0; iii < 6; iii++){
+        for(int iii = 0; iii < 20; iii++){
             grid.affichage(g);
             System.out.println();
             g = grid.modif( g, "Entrer le numéro de la colone");
