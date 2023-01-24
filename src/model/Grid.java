@@ -70,4 +70,49 @@ public class Grid {
         }
     
     }
+
+    public static boolean checkWin(ArrayList<ArrayList<String>> g, int joueur){
+        String joueurString = "";
+        if (joueur == 1){
+            joueurString = "X";
+        }
+        else if (joueur == 2){
+            joueurString = "O";
+        }
+        else{
+            return false;
+        }
+        // check horizontal
+        for (int li = 0; li < 6; li++) {
+            for (int col = 0; col < 4; col++) {
+                if (g.get(li).get(col) == joueurString && g.get(li).get(col+1) == joueurString && g.get(li).get(col+2) == joueurString && g.get(li).get(col+3) == joueurString){
+                    return true;
+                }
+            }
+        }
+        // check vertical
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 7; col++) {
+                if (g.get(li).get(col) == joueurString && g.get(li+1).get(col) == joueurString && g.get(li+2).get(col) == joueurString && g.get(li+3).get(col) == joueurString){
+                    return true;
+                }
+            }
+        }
+        // check diagonal
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 4; col++) {
+                if (g.get(li).get(col) == joueurString && g.get(li+1).get(col+1) == joueurString && g.get(li+2).get(col+2) == joueurString && g.get(li+3).get(col+3) == joueurString){
+                    return true;
+                }
+            }
+        }
+        for (int li = 0; li < 3; li++) {
+            for (int col = 3; col < 7; col++) {
+                if (g.get(li).get(col) == joueurString && g.get(li+1).get(col-1) == joueurString && g.get(li+2).get(col-2) == joueurString && g.get(li+3).get(col-3) == joueurString){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

@@ -39,7 +39,7 @@ public class IA {
     public static ArrayList<ArrayList<String>> modifia(ArrayList<ArrayList<String>>g, int joueur){
         String err1 = "Entrer une colone valide";
         String err2 = "Entrer un chiffre.\nPas une lettre ou un nombre ";
-        int coor = (int)(Math.random() * 10 + 1);
+        int coor = (int)(Math.random() * 7 + 1);
         if (joueur ==2){
             int li;
             for(li = 5; li > 0 ; li -- ){
