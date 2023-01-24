@@ -89,6 +89,7 @@ public class App {
 
 
 
+
     // Menus des paramètres =======================================================================
     // ============================================================================================
     public static void afficherMenuParam() {
@@ -136,23 +137,19 @@ public class App {
 
 
 
-    // Override ===================================================================================
-    // ============================================================================================
-    @Override
-    public String toString() {
-        return joueur.getNom() + " : " + score;
-    }
-    // ============================================================================================
-    // ============================================================================================
-
-
     // Lister =====================================================================================
     // ============================================================================================
     private static void afficherListe() {
         ArrayList<Score> list = Score.listeOrdre();
-        // Fais moi un if pour vérifier si la liste ne contient pas 10 éléments
-        for (int i = 0; i < 10; i++) {
-            System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+        if (list.size() >= 10) {
+            for (int i = 0; i < 10; i++) {
+                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+            }
+        }
+        else {
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+            }
         }
     }
     // ============================================================================================
