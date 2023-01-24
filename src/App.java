@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        
+        System.out.println();
+        System.out.println();
+        ArrayList<ArrayList<String>> g = Grid.createGrid();
+        Grid.affichage(g);
+        System.out.println();
+        System.out.println();
     }
 
 }
