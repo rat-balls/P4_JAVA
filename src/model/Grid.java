@@ -29,6 +29,7 @@ public class Grid {
             System.out.println("-----------------------------");
         }
     }
+    
     public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, String symbole){
         System.out.println(message);
         String err1 = "Veulliez entrer une colonne valide";

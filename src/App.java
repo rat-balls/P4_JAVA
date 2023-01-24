@@ -1,18 +1,22 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import model.*;
+import model.Score;
+import model.Joueur;
+import model.IA;
+import model.Game;
 
 public class App {
+    Joueur joueur = new Joueur(null, 0, null);
+    Score score = new Score();
     // Main =======================================================================================
     // ============================================================================================
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
         while(true) {
             afficherMenu();
             String choix = _scan.nextLine();
             switch(choix) {
                 case "1":
-                    choixjouer();
+                    jouer();
                     break;
                 case "2":
                     parametres();
@@ -64,7 +68,7 @@ public class App {
     }
 
 
-    public static void choixjouer() {
+    public static void jouer() {
         afficherMenuJeu();
         String choix = _scan.nextLine();
         switch(choix) {
@@ -86,7 +90,6 @@ public class App {
     }
     // ============================================================================================
     // ============================================================================================
-
 
 
 
@@ -135,6 +138,16 @@ public class App {
     // ============================================================================================
 
 
+
+
+    // Override ===================================================================================
+    // ============================================================================================
+    @Override
+    public String toString() {
+        return joueur.getNom() + " : " + score;
+    }
+    // ============================================================================================
+    // ============================================================================================
 
 
     // Lister =====================================================================================
