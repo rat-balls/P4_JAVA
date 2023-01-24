@@ -103,34 +103,21 @@ public class App {
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
-                initNomPlayer();
                 System.out.println("IA de niveau 1");
                 break;
             case "2":
-                initNomPlayer();
                 System.out.println("IA de niveau 2");
                 break;
             case "3":
-                initNomPlayer();
                 System.out.println("IA de niveau 3");
                 return;
             case "4":
-                initNomPlayer();
                 System.out.println("IA de niveau 4");
                 break;
             case "5":
                 break;
         }
     }
-
-    public static void initNomPlayer() {
-        Joueur joueur = new Joueur();
-        System.out.println("Veuillez entrer votre nom : ");
-        String nom = _scan.nextLine();
-        joueur.setNom(nom);
-        System.out.println(joueur.getNom());
-    }
-
     // ============================================================================================
     // ============================================================================================
 
