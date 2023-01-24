@@ -14,7 +14,7 @@ public class App {
             String choix = _scan.nextLine();
             switch(choix) {
                 case "1":
-                    jouer();
+                    choixjouer();
                     break;
                 case "2":
                     parametres();
@@ -66,12 +66,13 @@ public class App {
     }
 
 
-    public static void jouer() {
+    public static void choixjouer() {
         afficherMenuJeu();
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
                 System.out.println("Jouer contre l'Ordi");
+                jouer();
                 break;
             case "2":
                 System.out.println("Jouer contre un ami");
