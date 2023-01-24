@@ -4,11 +4,9 @@ import java.util.Scanner;
 import model.*;
 
 public class App {
-    Joueur joueur = new Joueur();
-    Score score = new Score();
     // Main =======================================================================================
     // ============================================================================================
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         while(true) {
             afficherMenu();
             String choix = _scan.nextLine();
@@ -72,10 +70,11 @@ public class App {
         switch(choix) {
             case "1":
                 System.out.println("Jouer contre l'Ordi");
-                jouer();
+                Game.startGame1P();
                 break;
             case "2":
                 System.out.println("Jouer contre un ami");
+                Game.startGame2P();
                 break;
             case "3":
                 System.out.println("Quitter");

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: App
+Class-Path: /Users/fartmaxself/Desktop/CODING/github/Puissance 4 mais vraiment un puissance 4/P4_JAVA/src/App.java
+
