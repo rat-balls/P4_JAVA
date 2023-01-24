@@ -1,6 +1,7 @@
 package model;
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.Grid;
 
 public class Game {
     private static boolean win = false;
@@ -42,17 +43,26 @@ public class Game {
             g = Grid.modif(g, "Joueur 1 : entrez une colonne",1);
             Grid.affichage(g);
             System.out.println();
+            win = Grid.checkWin(g, 1);
+
+            if (win == true){
+                System.out.println("Joueur 1 à gagner");
+                break;
+            }
+
             System.out.println();
             g = IA.modifia(g,2);
             Grid.affichage(g);
             System.out.println();
+
+            win = Grid.checkWin(g, 2);
+
+            if (win == true){
+                System.out.println("Joueur 2 à gagner");
+                break;
+            }
         }
 
     }
-    
-
-    private static Scanner _scan = new Scanner(System.in);
-
-
 }
 
