@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.Score;
+import model.Game;
 
 public class App {
     // Main =======================================================================================
@@ -70,7 +71,7 @@ public class App {
         switch(choix) {
             case "1":
                 System.out.println("Jouer contre l'Ordi");
-                break;
+                Game.startGame();
             case "2":
                 System.out.println("Jouer contre un ami");
                 break;
