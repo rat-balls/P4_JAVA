@@ -150,6 +150,7 @@ public class App {
     // ============================================================================================
     private static void afficherListe() {
         ArrayList<Score> list = Score.listeOrdre();
+        // Fais moi un if pour vérifier si la liste ne contient pas 10 éléments
         for (int i = 0; i < 10; i++) {
             System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
         }
