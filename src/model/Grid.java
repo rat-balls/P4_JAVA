@@ -1,10 +1,11 @@
 package model;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 
 public class Grid {
     
-    public static ArrayList<ArrayList<String>> createGrid(){
+    public static ArrayList createGrid(){
         ArrayList<ArrayList<String>> g = new ArrayList<ArrayList<String>>();
         for (int col = 0; col < 6; col++) {
             ArrayList<String> colonne = new ArrayList<>();
@@ -23,7 +24,23 @@ public class Grid {
                 System.out.print("| " + g.get(li).get(col) + " ");
             }
             System.out.println("|");
-            System.out.println("|---------------------------|");
+            System.out.println("-----------------------------");
         }
+    }
+    public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message){
+        Scanner sc = new Scanner(System.in);
+        System.out.println(message);
+        String err1 = "Entrer une colone valide";
+        String err2 = "Entrer un chiffre.\nPas une lettre ou un nombre ";
+        int coor = Integer.parseInt(sc.nextLine());
+        int li = 0;
+        while((g.get(li).get(coor-1)) != "-"){
+            if(li == 6){
+                return modif(g,err1);
+            }
+            li = li + 1;   
+        }
+        g.get(li).set(coor-1,"X");
+        return g;
     }
 }
