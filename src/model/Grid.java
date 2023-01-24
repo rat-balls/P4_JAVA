@@ -27,7 +27,7 @@ public class Grid {
             System.out.println("-----------------------------");
         }
     }
-    public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message){
+    public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, int symbo){
         Scanner sc = new Scanner(System.in);
         System.out.println(message);
         String err1 = "Entrer une colone valide";
@@ -60,7 +60,7 @@ public class Grid {
             System.out.println(err1);
             return modif(g,err1);
         }
-        g.get(li).set(coor-1,"X");
+        g.get(li).set(coor-1, symbo);
         return g;
     }
 }

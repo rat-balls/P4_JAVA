@@ -8,6 +8,14 @@ public class Pion {
         Joueur = joueur;
     }
 
+    public getPion(model.Joueur joueur) {
+        Joueur = joueur;
+    }
+
+    public getPion(model.Joueur joueur) {
+        Joueur = joueur;
+    }
+
     public Joueur getJoueur() {
         return Joueur;
     }
