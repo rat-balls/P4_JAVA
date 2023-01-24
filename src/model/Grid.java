@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Grid {
+
+    private static Scanner _scan = new Scanner(System.in);
     
     public static ArrayList<ArrayList<String>> createGrid(){
         ArrayList<ArrayList<String>> g = new ArrayList<ArrayList<String>>();
@@ -27,12 +29,14 @@ public class Grid {
             System.out.println("-----------------------------");
         }
     }
-    public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, String symbole, String choix){
+    public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, String symbole){
         System.out.println(message);
-        String err1 = "Entrer une colone valide";
-        String err2 = "Entrer un chiffre.\nPas une lettre ou un nombre ";
+        String err1 = "Veulliez entrer une colonne valide";
+        String err2 = "Veuillez entrer un chiffre.\nPas une lettre ou un nombre.\nbozo";
         int coor = 0;
         boolean error = true;
+
+        String choix = _scan.nextLine();
 
         while(error){
             try {
@@ -40,7 +44,7 @@ public class Grid {
                 coor = Integer.parseInt(coorString);
                 error = false;
             } catch (NumberFormatException e) {
-                return modif(g, err2, symbole, choix);
+                return modif(g, err2, symbole);
             }
         }
 
@@ -53,17 +57,16 @@ public class Grid {
                 }
             }
             if(li == 0 || !g.get(li).contains("-")){
-                return modif(g, err1, symbole, choix);
+                return modif(g, err1, symbole);
             }
         }
         
         if(coor < 1 || coor > 7) {
             System.out.println(err1);
-            return modif(g, err1, symbole, choix);
+            return modif(g, err1, symbole);
         }
 
-        g.get(li).set(coor-1,"X");
-        
+        g.get(li).set(coor-1, symbole);
         return g;
     }
 }
