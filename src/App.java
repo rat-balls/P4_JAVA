@@ -137,6 +137,6 @@ public class App {
     // Lister =====================================================================================
     // ============================================================================================
     private static void afficherListe() {
-        System.out.println(Score.lister());
+        System.out.println(Score.listeOrdre());
     }
 }
