@@ -32,13 +32,28 @@ public class Grid {
         System.out.println(message);
         String err1 = "Entrer une colone valide";
         String err2 = "Entrer un chiffre.\nPas une lettre ou un nombre ";
-        int coor = Integer.parseInt(sc.nextLine());
+        int coor = 0;
+        boolean error = true;
+        while(error){
+            try {
+                String coorString = sc.nextLine();
+                coor = Integer.parseInt(coorString);
+                error = false;
+            } catch (NumberFormatException e) {
+                System.out.println(err2);
+                error = true;
+            }
+        }
         int li = 0;
         while((g.get(li).get(coor-1)) != "-"){
             if(li == 6){
                 return modif(g,err1);
             }
             li = li + 1;   
+        }
+        if(coor < 1 || coor > 7) {
+            System.out.println(err1);
+            return modif(g,err1);
         }
         g.get(li).set(coor-1,"X");
         return g;
