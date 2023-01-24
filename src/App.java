@@ -3,9 +3,10 @@ import java.util.Scanner;
 import model.Score;
 import model.Joueur;
 import model.IA;
+import model.Game;
 
 public class App {
-    Joueur joueur = new Joueur();
+    Joueur joueur = new Joueur(null, 0, null);
     Score score = new Score();
     // Main =======================================================================================
     // ============================================================================================
@@ -73,10 +74,10 @@ public class App {
         switch(choix) {
             case "1":
                 System.out.println("Jouer contre l'Ordi");
-                IA.jeuOrdi();
+                Game.startGameia();
             case "2":
                 System.out.println("Jouer contre un ami");
-                break;
+                Game.startGame();
             case "3":
                 System.out.println("Quitter");
                 return;
@@ -151,9 +152,15 @@ public class App {
     // ============================================================================================
     private static void afficherListe() {
         ArrayList<Score> list = Score.listeOrdre();
-        // Fais moi un if pour vérifier si la liste ne contient pas 10 éléments
-        for (int i = 0; i < 10; i++) {
-            System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+        if (list.size() >= 10) {
+            for (int i = 0; i < 10; i++) {
+                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+            }
+        }
+        else {
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+            }
         }
     }
     // ============================================================================================

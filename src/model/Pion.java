@@ -2,18 +2,18 @@ package model;
 
 public class Pion {
 
-    private Joueur Joueur;
+    private Joueur joueur;
 
     public Pion(model.Joueur joueur) {
-        Joueur = joueur;
+        this.joueur = joueur;
     }
 
     public Joueur getJoueur() {
-        return Joueur;
+        return joueur;
     }
 
     public void setJoueur(Joueur joueur) {
-        Joueur = joueur;
+        this.joueur = joueur;
     }
 
 }
