@@ -52,6 +52,7 @@ public class Game {
                 Grid.affichage(g);
                 System.out.println();
                 Grid.modif(g, J1.getNom() + ", veuillez sélectionner une colonne.", J1.getSymbole());
+                won = Grid.checkWin(g, J1.getSymbole());
                 turn = true;
                 System.out.println();
                 System.out.println();
@@ -61,10 +62,22 @@ public class Game {
                 Grid.affichage(g);
                 System.out.println();
                 Grid.modif(g, J2.getNom() + ", veuillez sélectionner une colonne.", J2.getSymbole());
+                won = Grid.checkWin(g, J2.getSymbole());
                 turn = false;
                 System.out.println();
                 System.out.println();
             }
+        }
+
+        if(won){
+            String winner;
+            if(!turn){
+                winner = J1.getNom();
+            } else {
+                winner = J2.getNom();
+            }
+            Grid.affichage(g);
+            System.out.println("Bien joué, " + winner + ", vous avez gagné!");
         }
     }
 
