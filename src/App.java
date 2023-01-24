@@ -73,11 +73,11 @@ public class App {
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
-                System.out.println("Jouer contre l'Ordi");
                 Game.startGameia();
+                return;
             case "2":
-                System.out.println("Jouer contre un ami");
                 Game.startGame();
+                return;
             case "3":
                 System.out.println("Quitter");
                 return;
