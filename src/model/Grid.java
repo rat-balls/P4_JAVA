@@ -3,17 +3,8 @@ package model;
 import java.util.ArrayList;
 
 public class Grid {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println();
-        System.out.println();
-        ArrayList g = createGrid();
-        affichage(g);
-        System.out.println();
-        System.out.println();
-    }
     
-    public static ArrayList createGrid(){
+    public static ArrayList<ArrayList<String>> createGrid(){
         ArrayList<ArrayList<String>> g = new ArrayList<ArrayList<String>>();
         for (int col = 0; col < 6; col++) {
             ArrayList<String> colonne = new ArrayList<>();
@@ -32,7 +23,7 @@ public class Grid {
                 System.out.print("| " + g.get(li).get(col) + " ");
             }
             System.out.println("|");
-            System.out.println("-----------------------------");
+            System.out.println("|---------------------------|");
         }
     }
 }
