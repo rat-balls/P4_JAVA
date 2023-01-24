@@ -63,7 +63,7 @@ public class Score {
             while (line != null) {
                 String[] data = line.split(";");
                 Score score = new Score();
-                Joueur joueur = new Joueur();
+                Joueur joueur = new Joueur(line, 0, null);
                 joueur.setNom(data[0]);
                 score.setJoueur(joueur);
                 score.setScore(Integer.valueOf(data[1]));
@@ -88,7 +88,6 @@ public class Score {
                 }
             }
         }
-        System.out.println("\nTop 10 des meilleurs scores :");
         return list;
     }
 }

@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import model.*;
+import model.Score;
+import model.Joueur;
+import model.IA;
+import model.Game;
+import model.Grid;
 
 public class App {
-    Joueur joueur = new Joueur();
+    Joueur joueur = new Joueur(null, 0, null);
     Score score = new Score();
     // Main =======================================================================================
     // ============================================================================================
@@ -72,11 +75,10 @@ public class App {
         switch(choix) {
             case "1":
                 System.out.println("Jouer contre l'Ordi");
-                jouer();
-                break;
+                Game.startGameia();
             case "2":
                 System.out.println("Jouer contre un ami");
-                break;
+                Game.startGame();
             case "3":
                 System.out.println("Quitter");
                 return;
@@ -87,7 +89,6 @@ public class App {
     }
     // ============================================================================================
     // ============================================================================================
-
 
 
 
@@ -138,6 +139,16 @@ public class App {
 
 
 
+    // Override ===================================================================================
+    // ============================================================================================
+    @Override
+    public String toString() {
+        return joueur.getNom() + " : " + score;
+    }
+    // ============================================================================================
+    // ============================================================================================
+
+
     // Lister =====================================================================================
     // ============================================================================================
     private static void afficherListe() {
@@ -162,9 +173,6 @@ public class App {
         ArrayList G = grid.createGrid();
         while(true){
             grid.affichage(G);
-            
-            
-
         }
     }
 }
