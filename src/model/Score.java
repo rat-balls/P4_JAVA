@@ -88,6 +88,7 @@ public class Score {
                 }
             }
         }
+        System.out.println("\nTop 10 des meilleurs scores :");
         return list;
     }
 }
