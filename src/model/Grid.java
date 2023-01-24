@@ -26,7 +26,7 @@ public class Grid {
                 System.out.print("| " + g.get(li).get(col) + " ");
             }
             System.out.println("|");
-            System.out.println("-----------------------------");
+            System.out.println("|---------------------------|");
         }
     }
     
@@ -70,6 +70,7 @@ public class Grid {
         g.get(li).set(coor-1, symbole);
         return g;
     }
+
 
     public static boolean checkWin(ArrayList<ArrayList<String>> g, String symbole){
         // check horizontal
