@@ -58,17 +58,19 @@ public class Game {
 
         if(won){
             String winner;
+            String nomASave;
             int score;
             if(turn){
                 score = J1t;
                 winner = J1.getNom();
+                nomASave = nom1;
+                enregistrer(nomASave, score);
             } else {
                 score = JIAt;
                 winner = JIA.getNom();
             }
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
-            enregistrer(winner, score);
         }
     }
 
