@@ -3,7 +3,7 @@ import java.util.Scanner;
 import model.*;
 
 public class App {
-    Joueur joueur = new Joueur(null, 0, null);
+    Joueur joueur = new Joueur(null, null, null);
     Score score = new Score();
     
     // Main =======================================================================================
@@ -71,13 +71,13 @@ public class App {
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
-                versusIA();
-                Game.startGameia();
-                return;
+                System.out.println("Jouer contre l'Ordi");
+                Game.startGame1P();
+                break;
             case "2":
-                //menuContreAmi();
-                Game.startGame();
-                return;
+                System.out.println("Jouer contre un ami");
+                Game.startGame2P();
+                break;
             case "3":
                 System.out.println("Quitter");
                 return;

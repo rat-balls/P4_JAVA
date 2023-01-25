@@ -1,17 +1,20 @@
 package model;
 
 public class Joueur {
-
     private String nom;
-    private int couleur;
-    private Character symbole;
+    private String couleur;
+    private String symbole;
 
-    public Joueur(String nom, int couleur, Character symbole) {
+    
+
+    public Joueur(String nom, String couleur, String symbole) {
         this.nom = nom;
         this.couleur = couleur;
         this.symbole = symbole;
     }
 
+    // Nom du joueur ================================================================================
+    // ==============================================================================================
     public String getNom() {
         return nom;
     }
@@ -25,20 +28,33 @@ public class Joueur {
     
 
 
-    public int getCouleur() {
+    
+
+
+    // Couleur du joueur ==========================================================================
+    // ============================================================================================
+    public String getCouleur() {
         return couleur;
     }
 
-    public void setCouleur(int couleur) {
+    public void setCouleur(String couleur) {
         this.couleur = couleur;
     }
+    // ============================================================================================
+    // ============================================================================================
 
-    public Character getSymbole() {
+
+
+
+    // Symbole du joueur ==========================================================================
+    // ============================================================================================
+    public String getSymbole() {
         return symbole;
     }
 
-    public void setSymbole(Character symbole) {
+    public void setSymbole(String symbole) {
         this.symbole = symbole;
     }
-
+    // ============================================================================================
+    // ============================================================================================
 }

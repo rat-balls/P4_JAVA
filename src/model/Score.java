@@ -47,12 +47,12 @@ public class Score {
     public static ArrayList<Score> creerListe() {
         ArrayList<Score> list = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader("P4_JAVA/src/top10.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("/Users/fartmaxself/Desktop/CODING/github/Puissance-4-mais-vraiment-un-puissance-4/P4_JAVA/src/top10.csv"));
             String line = br.readLine();
             while (line != null) {
                 String[] data = line.split(";");
                 Score score = new Score();
-                Joueur joueur = new Joueur(line, 0, null);
+                Joueur joueur = new Joueur(line, null, null);
                 joueur.setNom(data[0]);
                 score.setJoueur(joueur);
                 score.setScore(Integer.valueOf(data[1]));

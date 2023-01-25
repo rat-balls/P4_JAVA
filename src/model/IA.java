@@ -1,8 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
 
 
 public class IA {
@@ -28,35 +26,22 @@ public class IA {
     }
     // ============================================================================================
     // ============================================================================================
-    
-    public static ArrayList<ArrayList<String>> modifia(ArrayList<ArrayList<String>>g, int joueur){
-        String err1 = "Entrer une colone valide";
-        String err2 = "Entrer un chiffre.\nPas une lettre ou un nombre ";
-        int coor = (int)(Math.random() * 7 + 1);
-        if (joueur ==2){
-            int li;
-            for(li = 5; li > 0 ; li -- ){
-                if((g.get(li).get(coor-1)) == "-" ){
-                    if((g.get(li-1).get(coor-1)) != "-"){
-                        break;
-                    }
-                }
-                if(li == 0 || !g.get(li).contains("-")){
-                    return modifia(g,2);
-                }
-            }
-            
-            if(coor < 1 || coor > 7) {
-                System.out.println(err1);
-                return modifia(g,2);
-            }
-        
-            g.get(li).set(coor-1,"O");
-        }
-            
-        return g;
-        
-    }
 
-    
+    public static ArrayList<ArrayList<String>> IAmodif(ArrayList<ArrayList<String>> g, String symbole){        
+        int coor = (int)(Math.random() * 7 + 1);
+
+        int li;
+        
+        for(li = 5; li > 0 ; li -- ){
+            if((g.get(li).get(coor-1)) == "-" ){
+                if((g.get(li-1).get(coor-1)) != "-"){
+                    break;
+                }
+            }
+        }
+
+        g.get(li).set(coor-1, symbole);
+        return g;
+    }
 }
+
