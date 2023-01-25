@@ -23,6 +23,11 @@ public class Game {
         JIA.setNom(Couleur.RED + "IA" + Couleur.DEFO);
         JIA.setSymbole(Couleur.RED + "#" + Couleur.DEFO);
 
+        System.out.println("Choisissez le niveau de l'IA: ");
+        System.out.println("[1] Facile");
+        System.out.println("[2] Moyen");
+        String iaLV = _scan.nextLine();
+
         // ça continue tant que personne n'a gagné
         while(!won){
             if(!turn){
@@ -41,7 +46,12 @@ public class Game {
                 System.out.println("Tour de l" + JIA.getNom() + ".");
                 System.out.println();
                 Grid.affichage(g);
-                IA.IAmodif(g, JIA.getSymbole());
+                if(iaLV.equals("1")){
+                    IA.IAmodif(g, JIA.getSymbole());
+                } else if(iaLV.equals("2")){
+                    IA.IAmodifLV2(g, J1.getSymbole(), JIA.getSymbole());
+                }
+                
                 won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
                 turn = false;
             }
