@@ -136,7 +136,7 @@ public class Game {
                 score = J2t;
             }
             Grid.affichage(g);
-            System.out.println("Bien joué, " + winner + ", vous avez gagné!");
+            System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
         }
     }
 
