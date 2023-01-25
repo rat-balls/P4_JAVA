@@ -48,7 +48,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Thread.sleep(1000);
-                System.out.println("Tour de l" + JIA.getNom() + ".");
+                System.out.println("Tour de l'" + JIA.getNom() + ".");
                 System.out.println();
                 Thread.sleep(1000);
                 Grid.affichage(g);
