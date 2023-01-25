@@ -1,6 +1,8 @@
 package model;
 import java.util.Scanner;
 
+import javax.xml.transform.Source;
+
 import java.util.ArrayList;
 
 public class Grid {
@@ -123,4 +125,58 @@ public class Grid {
         }
         return false;
     }
+    // faire une fonction anticipation qui va regarder si l'autre joueur peut gagner au prochain coup et qui retourne seulement le nombre de la colone de la case à jouer pour l'empécher de gagner
+
+    public static int anticipation(ArrayList<ArrayList<String>> g, String symbole, String symbole2){
+        // check horizontal
+        for (int li = 0; li < 6; li++) {
+            for (int col = 0; col < 4; col++) {
+                if (g.get(li).get(col) .equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole) && !g.get(li).get(col+3).equals(symbole2)){
+
+                    System.out.println("horizontal");
+                    if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole)){
+                        return col+3;
+                    }
+                }
+            }
+        }
+        // check vertical
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 7; col++) {
+                if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col).equals(symbole) && g.get(li+2).get(col).equals(symbole) && !g.get(li+3).get(col).equals(symbole2)){
+                    System.out.println("vertical");
+
+                    if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col).equals(symbole) && g.get(li+2).get(col).equals(symbole)){
+                        return col;
+                    }
+                }
+            }
+        }
+        // check diagonal
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 4; col++) {
+                if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col+1).equals(symbole) && g.get(li+2).get(col+2).equals(symbole) && !g.get(li+3).get(col+3).equals(symbole2)){
+
+                    System.out.println("diagonal");
+                    if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col+1).equals(symbole) && g.get(li+2).get(col+2).equals(symbole)){
+                        return col+3;
+                    }
+                }
+            }
+        }
+        for (int li = 0; li < 3; li++) {
+            for (int col = 3; col < 7; col++) {
+                if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col-1).equals(symbole) && g.get(li+2).get(col-2).equals(symbole) && !g.get(li+3).get(col-3).equals(symbole2) ){
+
+                    System.out.println("diagonal2");
+                    if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col-1).equals(symbole) && g.get(li+2).get(col-2).equals(symbole)){
+                        return col-3;
+                    }
+                }
+            }
+        }
+        return -1;
+        
+    }
 }
+            
