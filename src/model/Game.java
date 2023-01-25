@@ -32,7 +32,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J1.getSymbole());
-                won = Grid.checkWin(g, J1.getSymbole(), JIA.getCouleur());
+                won = Grid.checkWin(g, J1.getSymbole(), J1.getCouleur());
                 turn = true;
                 System.out.println();
             } else {
