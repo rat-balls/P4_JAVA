@@ -178,5 +178,15 @@ public class Grid {
         return -1;
         
     }
+
+    public static boolean matchnul (ArrayList<ArrayList<String>> g){
+        boolean endgame = true;
+        for (int col = 0; col < 7; col++) {
+            if(g.get(5).get(col).equals("-")){
+                endgame = false;
+            }    
+        }
+        return endgame;
+    }
 }
             
