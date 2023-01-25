@@ -2,11 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import model.Score;
 import model.Joueur;
+import model.Couleur;
 import model.Game;
 
 public class App {
     Joueur joueur = new Joueur(null, null, null);
     Score score = new Score();
+    public static Joueur J1 = new Joueur(null, Couleur.DEFO, null);
+    public static Joueur J2 = new Joueur(null, Couleur.DEFO, null);
+    public static Joueur JIA = new Joueur("IA", Couleur.DEFO, null);
     // Main =======================================================================================
     // ============================================================================================
     public static void main(String[] args) throws Exception {
@@ -73,11 +77,11 @@ public class App {
         switch(choix) {
             case "1":
                 System.out.println("Jouer contre l'Ordi");
-                Game.startGame1P();
+                Game.startGame1P(J1, JIA);
                 break;
             case "2":
                 System.out.println("Jouer contre un ami");
-                Game.startGame2P();
+                Game.startGame2P(J1, J2);
                 break;
             case "3":
                 System.out.println("Quitter");
@@ -97,9 +101,10 @@ public class App {
     public static void afficherMenuParam() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-- MENU PARAMETRES --");
-        menus.add("[1] Régler la couleur des pions");
-        menus.add("[2] Top 10 des meilleurs scores");
-        menus.add("[3] Retour");
+        menus.add("[1] Régler la couleur des pions du J1");
+        menus.add("[2] Régler la couleur des pions du J2");
+        menus.add("[3] Top 10 des meilleurs scores");
+        menus.add("[4] Retour");
         for (String menu : menus) {
             System.out.println(menu);
         }
@@ -112,11 +117,16 @@ public class App {
         switch(choix) {
             case "1":
                 System.out.println("Régler la couleur des pions");
+                Couleur.changeColors(J1);
                 break;
             case "2":
-                afficherListe();
+                System.out.println("Régler la couleur des pions");
+                Couleur.changeColors(J2);
                 break;
             case "3":
+                afficherListe();
+                break;
+            case "4":
                 System.out.println("Retour");
                 return;
             default:
