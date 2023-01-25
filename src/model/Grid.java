@@ -54,8 +54,8 @@ public class Grid {
         int li;
         
         for(li = 5; li > 0 ; li -- ){
-            if((g.get(li).get(coor-1)) == "-" ){
-                if((g.get(li-1).get(coor-1)) != "-"){
+            if((g.get(li).get(coor-1)).equals("-")){
+                if(!(g.get(li-1).get(coor-1)).equals("-")){
                     break;
                 }
             }
