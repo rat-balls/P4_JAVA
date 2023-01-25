@@ -1,4 +1,8 @@
 package model;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,10 +11,13 @@ import java.util.Scanner;
 
 public class Game {
     
-    public static void startGame1P(){
+    public static void startGame1P() throws IOException{
         boolean won = false;
         boolean turn = false;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
+        // compte le score des joueurs (nb de coup par joueurs)
+        int J1t = 0;
+        int JIAt = 0;
 
         System.out.println("Veuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
@@ -28,6 +35,7 @@ public class Game {
                 Grid.modif(g, "", J1.getSymbole());
                 won = Grid.checkWin(g, J1.getSymbole());
                 turn = true;
+                J1t += 1;
                 System.out.println();
             } else {
                 // IA Turn
@@ -35,21 +43,26 @@ public class Game {
                 System.out.println("Tour de l" + JIA.getNom() + ".");
                 System.out.println();
                 Grid.affichage(g);
-                won = Grid.checkWin(g, JIA.getSymbole());
-                turn = false;
                 IA.IAmodif(g, JIA.getSymbole());
+                won = Grid.checkWin(g, JIA.getSymbole());
+                JIAt += 1;
+                turn = false;
             }
         }
 
         if(won){
             String winner;
+            int score;
             if(turn){
+                score = J1t;
                 winner = J1.getNom();
             } else {
+                score = JIAt;
                 winner = JIA.getNom();
             }
             Grid.affichage(g);
-            System.out.println("Bien joué, " + winner + ", vous avez gagné!");
+            System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
+            enregistrer(winner, score);
         }
     }
 
@@ -136,6 +149,14 @@ public class Game {
 
     private static Scanner _scan = new Scanner(System.in);
 
-
+    public static void enregistrer(String joueur, int score) throws IOException {
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("P4_JAVA/src/top10.csv", true)));
+        try {
+            pw.println(joueur + ";" + score);
+        }
+        finally {
+            pw.close();
+        }
+    }
 }
 

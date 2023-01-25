@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.*;
@@ -66,7 +67,7 @@ public class App {
     }
 
 
-    public static void jouer() {
+    public static void jouer() throws IOException {
         afficherMenuJeu();
         String choix = _scan.nextLine();
         switch(choix) {
