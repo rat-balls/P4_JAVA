@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import model.*;
+import model.Score;
+import model.Joueur;
+import model.Game;
 
 public class App {
-    Joueur joueur = new Joueur(null, 0, null);
+    Joueur joueur = new Joueur(null, null, null);
     Score score = new Score();
     // Main =======================================================================================
     // ============================================================================================
@@ -13,7 +15,7 @@ public class App {
             String choix = _scan.nextLine();
             switch(choix) {
                 case "1":
-                    choixjouer();
+                    jouer();
                     break;
                 case "2":
                     parametres();
@@ -65,16 +67,18 @@ public class App {
     }
 
 
-    public static void choixjouer() {
+    public static void jouer() {
         afficherMenuJeu();
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
                 System.out.println("Jouer contre l'Ordi");
-                Game.startGameia();
+                Game.startGame1P();
+                break;
             case "2":
                 System.out.println("Jouer contre un ami");
-                Game.startGame();
+                Game.startGame2P();
+                break;
             case "3":
                 System.out.println("Quitter");
                 return;

@@ -4,8 +4,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Grid {
+
+    private static Scanner _scan = new Scanner(System.in);
     
-    public static ArrayList createGrid(){
+    public static ArrayList<ArrayList<String>> createGrid(){
         ArrayList<ArrayList<String>> g = new ArrayList<ArrayList<String>>();
         for (int col = 0; col < 6; col++) {
             ArrayList<String> colonne = new ArrayList<>();
@@ -24,57 +26,53 @@ public class Grid {
                 System.out.print("| " + g.get(li).get(col) + " ");
             }
             System.out.println("|");
-            System.out.println("-----------------------------");
+            System.out.println("|---------------------------|");
         }
     }
-    public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message,int joueur){
-        Scanner sc = new Scanner(System.in);
+    
+    public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, String symbole){
         System.out.println(message);
-        String err1 = "Entrer une colone valide";
-        String err2 = "Entrer un chiffre.\nPas une lettre ou un nombre ";
+        String err1 = "Veulliez entrer une colonne valide";
+        String err2 = "Veuillez entrer un chiffre.\nPas une lettre ou un nombre.\nbozo";
         int coor = 0;
-        
         boolean error = true;
+        String choix = _scan.nextLine();
+
         while(error){
             try {
-                String coorString = sc.nextLine();
+                String coorString = choix;
                 coor = Integer.parseInt(coorString);
                 error = false;
             } catch (NumberFormatException e) {
-                return modif(g,err2,1);
+                return modif(g, err2, symbole);
             }
         }
-        int li = 0;
-        if (joueur==1){
-            while((g.get(li).get(coor-1)) != "-"){
-                if(li == 6){
-                    return modif(g,err1,1);
+
+        int li;
+        
+        for(li = 5; li > 0 ; li -- ){
+            if((g.get(li).get(coor-1)) == "-" ){
+                if((g.get(li-1).get(coor-1)) != "-"){
+                    break;
                 }
-                li = li + 1;   
             }
-            g.get(li).set(coor-1,"X");
-            return g;
-        }
-        else if (joueur==2){
-            while((g.get(li).get(coor-1)) != "-"){
-                if(li == 6){
-                    return modif(g,err1,2);
-                }
-                li = li + 1;   
+            if(li == 0 || !g.get(li).contains("-")){
+                return modif(g, err1, symbole);
             }
-            g.get(li).set(coor-1,"O");
-            return g;
         }
-        else{
-            return modif(g,err2,0);
+        
+        if(coor < 1 || coor > 7) {
+            System.out.println(err1);
+            return modif(g, err1, symbole);
         }
-    
+
+        g.get(li).set(coor-1, symbole);
+        return g;
     }
 
 
     public static ArrayList checkWin(ArrayList<ArrayList<String>> g, String symbole){
-        ArrayList pozi_win = new ArrayList();
-
+        ArrayList pozi_win = new ArrayList<>();
         // check horizontal
         for (int li = 0; li < 6; li++) {
             for (int col = 0; col < 4; col++) {
