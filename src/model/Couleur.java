@@ -15,20 +15,15 @@ public class Couleur {
 
     public static void changeColors(Joueur J){
         System.out.println("Veuillez choisir une couleur: ");
-        System.out.println("[0] DEFAULT");
         System.out.println("[1] RED");
         System.out.println("[2] GREEN");
-        System.out.println("[3] YELLOW");
-        System.out.println("[4] BLUE");
-        System.out.println("[5] PURPLE");
-        System.out.println("[6] CYAN");
-        System.out.println("[7] LIGHT RED");
-        System.out.println("[8] LIGHT PURPLE");
+        System.out.println("[3] BLUE");
+        System.out.println("[4] PURPLE");
+        System.out.println("[5] CYAN");
+        System.out.println("[6] LIGHT RED");
+        System.out.println("[7] LIGHT PURPLE");
         String choix = _scan.nextLine();
         switch (choix) {
-            case "0":
-                J.setCouleur(Couleur.DEFO);
-                break;
             case "1":
                 J.setCouleur(Couleur.RED);
                 break;
@@ -36,21 +31,18 @@ public class Couleur {
                 J.setCouleur(Couleur.GREEN);
                 break;
             case "3":
-                J.setCouleur(Couleur.YELLOW);
-                break;
-            case "4":
                 J.setCouleur(Couleur.BLUE);
                 break;
-            case "5":
+            case "4":
                 J.setCouleur(Couleur.PURPLE);
                 break;
-            case "6":
+            case "5":
                 J.setCouleur(Couleur.CYAN);
                 break;
-            case "7":
+            case "6":
                 J.setCouleur(Couleur.LRED);
                 break;
-            case "8":
+            case "7":
                 J.setCouleur(Couleur.LPURPLE);
                 break;
             default:

@@ -32,7 +32,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J1.getSymbole());
-                won = Grid.checkWin(g, J1.getSymbole());
+                won = Grid.checkWin(g, J1.getSymbole(), JIA.getCouleur());
                 turn = true;
                 System.out.println();
             } else {
@@ -42,7 +42,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 IA.IAmodif(g, JIA.getSymbole());
-                won = Grid.checkWin(g, JIA.getSymbole());
+                won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
                 turn = false;
             }
         }
@@ -94,7 +94,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J1.getSymbole());
-                won = Grid.checkWin(g, J1.getSymbole());
+                won = Grid.checkWin(g, J1.getSymbole(), J1.getCouleur());
                 turn = true;
                 J1t += 1;
                 System.out.println();
@@ -105,7 +105,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J2.getSymbole());
-                won = Grid.checkWin(g, J2.getSymbole());
+                won = Grid.checkWin(g, J2.getSymbole(), J2.getCouleur());
                 turn = false;
                 J2t += 1;
                 System.out.println();
