@@ -42,30 +42,6 @@ public class Score {
     
 
 
-    // Override ===================================================================================
-    // ============================================================================================
-    @Override
-    public String toString() {
-        return joueur.getNom() + " : " + score;
-    }
-    // ============================================================================================
-    // ============================================================================================
-
-
-
-
-    // Override ===================================================================================
-    // ============================================================================================
-    @Override
-    public String toString() {
-        return joueur.getNom() + " : " + score;
-    }
-    // ============================================================================================
-    // ============================================================================================
-
-
-
-
     // Lister =====================================================================================
     // ============================================================================================
     public static ArrayList<Score> creerListe() {
@@ -76,9 +52,8 @@ public class Score {
             while (line != null) {
                 String[] data = line.split(";");
                 Score score = new Score();
-                score.setScore(Integer.parseInt(data[0]));
-                Joueur joueur = new Joueur();
-                joueur.setNom(data[1]);
+                Joueur joueur = new Joueur(line, 0, null);
+                joueur.setNom(data[0]);
                 score.setJoueur(joueur);
                 score.setScore(Integer.valueOf(data[1]));
                 list.add(score);
@@ -88,6 +63,21 @@ public class Score {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return list;
+    }
+
+    public static ArrayList<Score> listeOrdre() {
+        ArrayList<Score> list = creerListe();
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).getScore() > list.get(j).getScore()) {
+                    Score temp = list.get(i);
+                    list.set(i, list.get(j));
+                    list.set(j, temp);
+                }
+            }
+        }
+        System.out.println("\nTop 10 des meilleurs scores :");
         return list;
     }
 }
