@@ -36,39 +36,39 @@ public class Couleur {
         String choix = _scan.nextLine();
         switch (choix) {
             case "0":
-                System.out.println("Couleur par défaut séléctionnée");
+                System.out.println("Couleur par défaut sélectionnée");
                 J.setCouleur(Couleur.DEFO);
                 break;
             case "1":
-                System.out.println("Rouge séléctionné");
+                System.out.println("Rouge sélectionné");
                 J.setCouleur(Couleur.RED);
                 break;
             case "2":
-                System.out.println("Vert séléctionné");
+                System.out.println("Vert sélectionné");
                 J.setCouleur(Couleur.GREEN);
                 break;
             case "3":
-                System.out.println("Jaune séléctionné");
+                System.out.println("Jaune sélectionné");
                 J.setCouleur(Couleur.YELLOW);
                 break;
             case "4":
-                System.out.println("Bleu séléctionné");
+                System.out.println("Bleu sélectionné");
                 J.setCouleur(Couleur.BLUE);
                 break;
             case "5":
-                System.out.println("Violet séléctionné");
+                System.out.println("Violet sélectionné");
                 J.setCouleur(Couleur.PURPLE);
                 break;
             case "6":
-                System.out.println("Cyan séléctionné");
+                System.out.println("Cyan sélectionné");
                 J.setCouleur(Couleur.CYAN);
                 break;
             case "7":
-                System.out.println("Rouge Clair séléctionné");
+                System.out.println("Rouge Clair sélectionné");
                 J.setCouleur(Couleur.LRED);
                 break;
             case "8":
-                System.out.println("Violet Clair séléctionné");
+                System.out.println("Violet Clair sélectionné");
                 J.setCouleur(Couleur.LPURPLE);
                 break;
             default:
