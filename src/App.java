@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import model.Score;
 import model.Joueur;
-import model.IA;
 import model.Game;
 
 public class App {

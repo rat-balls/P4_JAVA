@@ -4,9 +4,9 @@ public class Joueur {
 
     private String nom;
     private int couleur;
-    private Character symbole;
+    private String symbole;
 
-    public Joueur(String nom, int couleur, Character symbole) {
+    public Joueur(String nom, int couleur, String symbole) {
         this.nom = nom;
         this.couleur = couleur;
         this.symbole = symbole;
@@ -28,11 +28,11 @@ public class Joueur {
         this.couleur = couleur;
     }
 
-    public Character getSymbole() {
+    public String getSymbole() {
         return symbole;
     }
 
-    public void setSymbole(Character symbole) {
+    public void setSymbole(String symbole) {
         this.symbole = symbole;
     }
 

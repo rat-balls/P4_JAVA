@@ -2,6 +2,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.Grid;
+import model.Joueur;
 
 
 
@@ -54,7 +55,12 @@ public class Game {
         
         ArrayList<ArrayList<String>> g = Grid.createGrid();
         Grid.affichage(g);
+
         System.out.println();
+
+        String symbole = "X";
+        String symbole2 = "O";
+
         while (win == false){
             System.out.println();
 
@@ -69,7 +75,7 @@ public class Game {
             }
 
             System.out.println();
-            g = IA.modifia(g,2);
+            g = IA.modifianiv2(g,symbole,symbole2);
             Grid.affichage(g);
             System.out.println();
 
