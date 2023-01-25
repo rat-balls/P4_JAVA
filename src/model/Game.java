@@ -40,6 +40,7 @@ public class Game {
                 IA.IAmodif(g, JIA.getSymbole());
             }
         }
+
         if(won){
             String winner;
             if(turn){
@@ -56,6 +57,10 @@ public class Game {
         boolean won = false;
         boolean turn = false;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
+
+        // compte le score des joueurs (nb de coup par joueurs)
+        int J1t = 0;
+        int J2t = 0;
 
         System.out.println("Veuillez entrer le nom du premier joueur.");
         String nom1 = _scan.nextLine();
@@ -75,6 +80,7 @@ public class Game {
                 Grid.modif(g, "", J1.getSymbole());
                 won = Grid.checkWin(g, J1.getSymbole());
                 turn = true;
+                J1t += 1;
                 System.out.println();
             } else {
                 System.out.println();
@@ -85,6 +91,7 @@ public class Game {
                 Grid.modif(g, "", J2.getSymbole());
                 won = Grid.checkWin(g, J2.getSymbole());
                 turn = false;
+                J2t += 1;
                 System.out.println();
             }
         }
@@ -93,8 +100,10 @@ public class Game {
             String winner;
             if(turn){
                 winner = J1.getNom();
+                int score = J1t;
             } else {
                 winner = J2.getNom();
+                int score = J2t;
             }
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné!");
