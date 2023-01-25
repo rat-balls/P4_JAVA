@@ -10,6 +10,7 @@ public class Game {
     public static void startGame1P(Joueur J1, Joueur JIA){
         boolean won = false;
         boolean turn = false;
+        boolean endgame = false;
         String c1 = J1.getCouleur();
         String d = Couleur.DEFO;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
@@ -25,6 +26,11 @@ public class Game {
 
         // ça continue tant que personne n'a gagné
         while(!won){
+            if(Grid.matchnul(g)){
+                System.out.println("endgame check");
+                endgame = true;
+                ;
+            }
             if(!turn){
                 System.out.println();
                 System.out.println();
@@ -57,6 +63,10 @@ public class Game {
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné!");
         }
+        if(endgame){
+            Grid.affichage(g);
+            System.out.println("match nul, personne n'a gagné");
+        }
     }
 
     
@@ -64,6 +74,7 @@ public class Game {
     public static void startGame2P(Joueur J1, Joueur J2){
         boolean won = false;
         boolean turn = false;
+        boolean endgame = false;
         String c1 = J1.getCouleur();
         String c2 = J2.getCouleur();
         String d = Couleur.DEFO;
@@ -85,8 +96,15 @@ public class Game {
         J2.setNom(c2 + nom2 + d);
         J2.setSymbole(c2 + "#" + d);
 
+
+
         // ça continue tant que personne n'a gagné
         while(!won){
+            if(Grid.matchnul(g)==true){
+                System.out.println("endgame check");
+                endgame = true;
+                break;
+            }
             if(!turn){
                 System.out.println();
                 System.out.println();
@@ -111,7 +129,7 @@ public class Game {
                 System.out.println();
             }
         }
-
+        
         if(won){
             String winner;
             int score;
@@ -125,10 +143,14 @@ public class Game {
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné!");
         }
+
+        if(endgame){
+            Grid.affichage(g);
+            System.out.println("match nul, personne n'a gagné");
+        }
     }
 
     private static Scanner _scan = new Scanner(System.in);
-
 
 }
 

@@ -21,13 +21,30 @@ public class Grid {
     
     public static void affichage (ArrayList<ArrayList<String>> g){
         System.out.println("  1   2   3   4   5   6   7");
+        boolean endgame = true;
         for (int li = 5; li >= 0; li--) {
             for (int col = 0; col < 7; col++) {
+                if(g.get(li).get(col).equals("-")){
+                    endgame = false;
+                }  
                 System.out.print("| " + g.get(li).get(col) + " ");
+                
             }
             System.out.println("|");
             System.out.println("|---------------------------|");
         }
+        if(endgame){
+            
+        }
+    }
+    public static boolean matchnul (ArrayList<ArrayList<String>> g){
+        boolean endgame = true;
+        for (int col = 0; col < 7; col++) {
+            if(g.get(5).get(col).equals("-")){
+                endgame = false;
+            }    
+        }
+        return endgame;
     }
     
     public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, String symbole){
