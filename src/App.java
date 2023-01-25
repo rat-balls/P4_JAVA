@@ -153,11 +153,11 @@ public class App {
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
-                System.out.println("Régler la couleur des pions");
+                System.out.println("\n-[ COULEUR PIONS JOUEUR 1 ]-");
                 Couleur.changeColors(J1);
                 break;
             case "2":
-                System.out.println("Régler la couleur des pions");
+                System.out.println("\n-[ COULEUR PIONS JOUEUR 2 ]-");
                 Couleur.changeColors(J2);
                 break;
             case "3":

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Couleur {
@@ -13,44 +14,61 @@ public class Couleur {
     public static final String LRED = "\033[1;31m";
     public static final String LPURPLE = "\033[1;35m";
 
+    public static void afficherCouleurs() {
+        ArrayList<String> menus = new ArrayList<>();
+        menus.add("-- MENU COULEURS --");
+        menus.add("[0] Couleur par défaut");
+        menus.add("[1] Rouge");
+        menus.add("[2] Vert");
+        menus.add("[3] Jaune");
+        menus.add("[4] Bleu");
+        menus.add("[5] Violet");
+        menus.add("[6] Cyan");
+        menus.add("[7] Rouge Clair");
+        menus.add("[8] Violet Clair");
+        for (String menu : menus) {
+            System.out.println(menu);
+        }
+    }
+
     public static void changeColors(Joueur J){
-        System.out.println("Veuillez choisir une couleur: ");
-        System.out.println("[0] DEFAULT");
-        System.out.println("[1] RED");
-        System.out.println("[2] GREEN");
-        System.out.println("[3] YELLOW");
-        System.out.println("[4] BLUE");
-        System.out.println("[5] PURPLE");
-        System.out.println("[6] CYAN");
-        System.out.println("[7] LIGHT RED");
-        System.out.println("[8] LIGHT PURPLE");
+        afficherCouleurs();
         String choix = _scan.nextLine();
         switch (choix) {
             case "0":
+                System.out.println("Couleur par défaut séléctionnée");
                 J.setCouleur(Couleur.DEFO);
                 break;
             case "1":
+                System.out.println("Rouge séléctionné");
                 J.setCouleur(Couleur.RED);
                 break;
             case "2":
+                System.out.println("Vert séléctionné");
                 J.setCouleur(Couleur.GREEN);
                 break;
             case "3":
+                System.out.println("Jaune séléctionné");
                 J.setCouleur(Couleur.YELLOW);
                 break;
             case "4":
+                System.out.println("Bleu séléctionné");
                 J.setCouleur(Couleur.BLUE);
                 break;
             case "5":
+                System.out.println("Violet séléctionné");
                 J.setCouleur(Couleur.PURPLE);
                 break;
             case "6":
+                System.out.println("Cyan séléctionné");
                 J.setCouleur(Couleur.CYAN);
                 break;
             case "7":
+                System.out.println("Rouge Clair séléctionné");
                 J.setCouleur(Couleur.LRED);
                 break;
             case "8":
+                System.out.println("Violet Clair séléctionné");
                 J.setCouleur(Couleur.LPURPLE);
                 break;
             default:
