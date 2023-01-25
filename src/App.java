@@ -239,6 +239,9 @@ public class App {
                 System.out.println((i+1) + " - " + list.get(i).getJoueur().getNom() + " : " + list.get(i).getScore());
             }
         }
+        else if (list.size() == 0) {
+            System.out.println("\nAucun score enregistré");
+        }
         else {
             System.out.println("\nTop " + list.size() + " des meilleurs scores :");
             for (int i = 0; i < list.size(); i++) {
