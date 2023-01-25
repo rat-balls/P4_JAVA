@@ -1,9 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import model.*;
+import model.Joueur;
+import model.IA;
+import model.Game;
 
 public class App {
+    Joueur joueur = new Joueur(null, 0, null);
+    Score score = new Score();
     
     // Main =======================================================================================
     // ============================================================================================
@@ -72,9 +76,13 @@ public class App {
             case "1":
                 versusIA();
                 break;
+                Game.startGameia();
+                return;
             case "2":
                 //menuContreAmi();
                 break;
+                Game.startGame();
+                return;
             case "3":
                 System.out.println("Quitter");
                 return;
@@ -170,6 +178,16 @@ public class App {
 
 
 
+    // Override ===================================================================================
+    // ============================================================================================
+    @Override
+    public String toString() {
+        return joueur.getNom() + " : " + score;
+    }
+    // ============================================================================================
+    // ============================================================================================
+
+
     // Lister =====================================================================================
     // ============================================================================================
     private static void afficherListe() {
@@ -184,7 +202,20 @@ public class App {
                 System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
             }
         }
+        ArrayList<Score> list = Score.listeOrdre();
+        if (list.size() >= 10) {
+            for (int i = 0; i < 10; i++) {
+                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+            }
+        }
+        else {
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+            }
+        }
     }
+    // ============================================================================================
+    // ============================================================================================
     // ============================================================================================
     // ============================================================================================
 }
