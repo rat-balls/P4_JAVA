@@ -1,5 +1,6 @@
 package model;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -8,7 +9,7 @@ import java.util.Scanner;
 public class Game {
     
     public static void startGame1P(){
-        boolean won = false;
+        ArrayList won = new ArrayList<>();
         boolean turn = false;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
 
@@ -18,7 +19,7 @@ public class Game {
         Joueur JIA = new Joueur(Couleur.RED + "IA" + Couleur.DEFO, Couleur.RED, Couleur.RED + "#" + Couleur.DEFO);
 
         // ça continue tant que personne n'a gagné
-        while(!won){
+        while(won.isEmpty()){
             if(!turn){
                 System.out.println();
                 System.out.println();
@@ -41,7 +42,7 @@ public class Game {
             }
         }
 
-        if(won){
+        if(!won.isEmpty()){
             String winner;
             if(turn){
                 winner = J1.getNom();
@@ -54,7 +55,7 @@ public class Game {
     }
 
     public static void startGame2P(){
-        boolean won = false;
+        ArrayList won = new ArrayList<>();
         boolean turn = false;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
 
@@ -70,7 +71,7 @@ public class Game {
         Joueur J2 = new Joueur(Couleur.RED + nom2 + Couleur.DEFO, Couleur.RED, Couleur.RED + "#" + Couleur.DEFO);
 
         // ça continue tant que personne n'a gagné
-        while(!won){
+        while(won.isEmpty()){
             if(!turn){
                 System.out.println();
                 System.out.println();
@@ -96,7 +97,7 @@ public class Game {
             }
         }
 
-        if(won){
+        if(!won.isEmpty()){
             String winner;
             if(turn){
                 winner = J1.getNom();
@@ -105,13 +106,13 @@ public class Game {
                 winner = J2.getNom();
                 int score = J2t;
             }
+            System.out.println(won);
+            System.out.println(g);
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné!");
         }
     }
 
     private static Scanner _scan = new Scanner(System.in);
-
-
 }
 
