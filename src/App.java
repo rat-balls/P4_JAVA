@@ -165,12 +165,12 @@ public class App {
         ArrayList<Score> list = Score.listeOrdre();
         if (list.size() >= 10) {
             for (int i = 0; i < 10; i++) {
-                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+                System.out.println((i+1) + " - " + list.get(i).getJoueur().getNom() + " : " + list.get(i).getScore());
             }
         }
         else {
             for (int i = 0; i < list.size(); i++) {
-                System.out.println((i+1) + " - " + list.get(i).getJoueur() + " : " + list.get(i).getScore());
+                System.out.println((i+1) + " - " + list.get(i).getJoueur().getNom() + " : " + list.get(i).getScore());
             }
         }
     }

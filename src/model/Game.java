@@ -18,6 +18,12 @@ public class Game {
         System.out.println("Veuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
         
+        System.out.println("Veuillez choisir le niveau de l'IA: ");
+        System.out.println("[1] Facile");
+        System.out.println("[2] Moyen");
+        String iaLV = _scan.nextLine();
+
+
         J1.setNom(c1 + nom1 + d);
         J1.setSymbole(c1 + "@" + d);
 
@@ -29,7 +35,7 @@ public class Game {
             if(Grid.matchnul(g)){
                 System.out.println("endgame check");
                 endgame = true;
-                ;
+                break;
             }
             if(!turn){
                 System.out.println();
@@ -38,7 +44,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J1.getSymbole());
-                won = Grid.checkWin(g, J1.getSymbole(), JIA.getCouleur());
+                won = Grid.checkWin(g, J1.getSymbole(), J1.getCouleur());
                 turn = true;
                 System.out.println();
             } else {
@@ -47,7 +53,11 @@ public class Game {
                 System.out.println("Tour de l" + JIA.getNom() + ".");
                 System.out.println();
                 Grid.affichage(g);
-                IA.IAmodif(g, JIA.getSymbole());
+                if(iaLV.equals("1")){
+                    IA.IAmodif(g, JIA.getSymbole());
+                } else if(iaLV.equals("2")){
+                    IA.IAmodifLV2(g, J1.getSymbole(), JIA.getSymbole());
+                }
                 won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
                 turn = false;
             }
@@ -63,9 +73,10 @@ public class Game {
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné!");
         }
+
         if(endgame){
             Grid.affichage(g);
-            System.out.println("match nul, personne n'a gagné");
+            System.out.println("Match nul, personne n'a gagné. \ntro nul");
         }
     }
 
@@ -96,16 +107,14 @@ public class Game {
         J2.setNom(c2 + nom2 + d);
         J2.setSymbole(c2 + "#" + d);
 
-
-
         // ça continue tant que personne n'a gagné
         while(!won){
-            if(Grid.matchnul(g)==true){
-                System.out.println("endgame check");
-                endgame = true;
-                break;
-            }
             if(!turn){
+                if(Grid.matchnul(g)){
+                    System.out.println("endgame check");
+                    endgame = true;
+                    break;
+                }
                 System.out.println();
                 System.out.println();
                 System.out.println(J1.getNom() + ", veuillez sélectionner une colonne: ");
@@ -129,7 +138,7 @@ public class Game {
                 System.out.println();
             }
         }
-        
+
         if(won){
             String winner;
             int score;
@@ -151,6 +160,7 @@ public class Game {
     }
 
     private static Scanner _scan = new Scanner(System.in);
+
 
 }
 
