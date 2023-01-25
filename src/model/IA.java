@@ -45,7 +45,7 @@ public class IA {
         return g;
     }
     
-    public static ArrayList<ArrayList<String>> IAmodifLV2(ArrayList<ArrayList<String>>g, String symbole, String symbole2){
+    public static ArrayList<ArrayList<String>> modifianiv2(ArrayList<ArrayList<String>>g, String symbole, String symbole2){
         if (Grid.anticipation(g,symbole,symbole2) > 0){
             int coor = Grid.anticipation(g,symbole,symbole2)+1;
             System.out.println(coor);
@@ -72,7 +72,7 @@ public class IA {
                     }
                 }
                 if(li == 0 || !g.get(li).contains("-")){
-                    return IAmodifLV2(g,symbole,symbole2);
+                    return modifianiv2(g,symbole,symbole2);
                 }
             }
             g.get(li).set(coor-1, symbole2);
