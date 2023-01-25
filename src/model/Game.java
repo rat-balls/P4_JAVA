@@ -91,10 +91,10 @@ public class Game {
         int J1t = 0;
         int J2t = 0;
 
-        System.out.println("\nVeuillez entrer le nom du Joueur 1: ");
+        System.out.println("Veuillez entrer le nom du Joueur 1: ");
         String nom1 = _scan.nextLine();
         
-        System.out.println("Veuillez entrer le nom du Joueur 2: ");
+        System.out.println("\nVeuillez entrer le nom du Joueur 2: ");
         String nom2 = _scan.nextLine();
 
         J1.setNom(c1 + nom1 + d);
