@@ -1,4 +1,8 @@
 package model;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,13 +11,16 @@ import java.util.Scanner;
 
 public class Game {
     
-    public static void startGame1P(Joueur J1, Joueur JIA){
+    public static void startGame1P(Joueur J1, Joueur JIA) throws IOException, InterruptedException{
         boolean won = false;
         boolean turn = false;
         boolean endgame = false;
         String c1 = J1.getCouleur();
         String d = Couleur.DEFO;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
+        // compte le score des joueurs (nb de coup par joueurs)
+        int J1t = 0;
+        int JIAt = 0;
 
         System.out.println("Veuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
@@ -46,12 +53,16 @@ public class Game {
                 Grid.modif(g, "", J1.getSymbole());
                 won = Grid.checkWin(g, J1.getSymbole(), J1.getCouleur());
                 turn = true;
+                J1t += 1;
                 System.out.println();
             } else {
                 // IA Turn
                 System.out.println();
-                System.out.println("Tour de l" + JIA.getNom() + ".");
+                Grid.affichage(g);
+                Thread.sleep(1000);
+                System.out.println("Tour de l'" + JIA.getNom() + ".");
                 System.out.println();
+                Thread.sleep(1000);
                 Grid.affichage(g);
                 if(iaLV.equals("1")){
                     IA.IAmodif(g, JIA.getSymbole());
@@ -65,13 +76,19 @@ public class Game {
 
         if(won){
             String winner;
+            String nomASave;
+            int score;
             if(turn){
+                score = J1t;
                 winner = J1.getNom();
+                nomASave = nom1;
+                enregistrer(nomASave, score);
             } else {
+                score = JIAt;
                 winner = JIA.getNom();
             }
             Grid.affichage(g);
-            System.out.println("Bien joué, " + winner + ", vous avez gagné!");
+            System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
         }
 
         if(endgame){
@@ -95,10 +112,10 @@ public class Game {
         int J1t = 0;
         int J2t = 0;
 
-        System.out.println("Veuillez entrer le nom du premier joueur: ");
+        System.out.println("Veuillez entrer le nom du Joueur 1: ");
         String nom1 = _scan.nextLine();
         
-        System.out.println("Veuillez entrer le nom du deuxième joueur: ");
+        System.out.println("\nVeuillez entrer le nom du Joueur 2: ");
         String nom2 = _scan.nextLine();
 
         J1.setNom(c1 + nom1 + d);
@@ -150,7 +167,7 @@ public class Game {
                 score = J2t;
             }
             Grid.affichage(g);
-            System.out.println("Bien joué, " + winner + ", vous avez gagné!");
+            System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
         }
 
         if(endgame){
@@ -161,6 +178,14 @@ public class Game {
 
     private static Scanner _scan = new Scanner(System.in);
 
-
+    public static void enregistrer(String joueur, int score) throws IOException {
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("P4_JAVA/src/top10.csv", true)));
+        try {
+            pw.println(joueur + ";" + score);
+        }
+        finally {
+            pw.close();
+        }
+    }
 }
 
