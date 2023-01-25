@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Game {
     
-    public static void startGame1P(Joueur J1, Joueur JIA) throws IOException{
+    public static void startGame1P(Joueur J1, Joueur JIA) throws IOException, InterruptedException{
         boolean won = false;
         boolean turn = false;
         String c1 = J1.getCouleur();
@@ -46,8 +46,11 @@ public class Game {
             } else {
                 // IA Turn
                 System.out.println();
+                Grid.affichage(g);
+                Thread.sleep(1000);
                 System.out.println("Tour de l" + JIA.getNom() + ".");
                 System.out.println();
+                Thread.sleep(1000);
                 Grid.affichage(g);
                 IA.IAmodif(g, JIA.getSymbole());
                 won = Grid.checkWin(g, JIA.getSymbole());
@@ -88,10 +91,10 @@ public class Game {
         int J1t = 0;
         int J2t = 0;
 
-        System.out.println("Veuillez entrer le nom du premier joueur: ");
+        System.out.println("\nVeuillez entrer le nom du Joueur 1: ");
         String nom1 = _scan.nextLine();
         
-        System.out.println("Veuillez entrer le nom du deuxième joueur: ");
+        System.out.println("Veuillez entrer le nom du Joueur 2: ");
         String nom2 = _scan.nextLine();
 
         J1.setNom(c1 + nom1 + d);
