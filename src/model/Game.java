@@ -17,6 +17,12 @@ public class Game {
         System.out.println("Veuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
         
+        System.out.println("Veuillez choisir le niveau de l'IA: ");
+        System.out.println("[1] Facile");
+        System.out.println("[2] Moyen");
+        String iaLV = _scan.nextLine();
+
+
         J1.setNom(c1 + nom1 + d);
         J1.setSymbole(c1 + "@" + d);
 
@@ -41,7 +47,11 @@ public class Game {
                 System.out.println("Tour de l" + JIA.getNom() + ".");
                 System.out.println();
                 Grid.affichage(g);
-                IA.IAmodif(g, JIA.getSymbole());
+                if(iaLV.equals("1")){
+                    IA.IAmodif(g, JIA.getSymbole());
+                } else if(iaLV.equals("2")){
+                    IA.IAmodifLV2(g, J1.getSymbole(), JIA.getSymbole());
+                }
                 won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
                 turn = false;
             }
