@@ -44,7 +44,7 @@ public class Game {
             }
         }
         afficherMenuIA();
-        String iaLV = _scan.nextLine();
+        iaLV = _scan.nextLine();
         switch (iaLV) {
             case "1":
             case "2":
@@ -55,11 +55,6 @@ public class Game {
                 System.out.println("Veuillez entrer un chiffre entre 1 et 4.");
                 break;
         }
-
-        System.out.println("Veuillez entrer votre nom: ");
-        String nom1 = _scan.nextLine();
-
-
         J1.setNom(c1 + nom1 + d);
         J1.setSymbole(c1 + "@" + d);
 
