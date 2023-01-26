@@ -31,6 +31,49 @@ public class Couleur {
         }
     }
 
+    public static void afficherSymboles() {
+        ArrayList<String> menus = new ArrayList<>();
+        menus.add("-- MENU SYMBOLES --");
+        menus.add("[1] J1, J2 = @, # ");
+        menus.add("[2] J1, J2 = O, X");
+        menus.add("[3] J1, J2 = !, ?");
+        menus.add("[4] J1, J2 = :D, :C (mauvaise idée)");
+        for (String menu : menus) {
+            System.out.println(menu);
+        }
+    }
+
+    public static void changeSymbols(Joueur J1, Joueur J2, Joueur JIA){
+        afficherSymboles();
+        String choix = _scan.nextLine();
+        switch (choix) {
+            case "1":
+                System.out.println("@ et # sélectionnés");
+                J1.setSymbole("@");
+                J2.setSymbole("#");
+                JIA.setSymbole("#");
+                break;
+            case "2":
+                System.out.println("O et X sélectionnés");
+                J1.setSymbole("O");
+                J2.setSymbole("X");
+                JIA.setSymbole("X");
+                break;
+            case "3":
+                System.out.println("! et ? sélectionnés");
+                J1.setSymbole("!");
+                J2.setSymbole("?");
+                JIA.setSymbole("?");
+                break;
+            case "4":
+                System.out.println(":D et :C sélectionnés");
+                J1.setSymbole(":D");
+                J2.setSymbole(":C");
+                JIA.setSymbole(":C");
+                break;
+        }
+    }
+
     public static void changeColors(Joueur J){
         afficherCouleurs();
         String choix = _scan.nextLine();

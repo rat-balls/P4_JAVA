@@ -11,9 +11,9 @@ import model.Game;
 public class App {
     Joueur joueur = new Joueur(null, null, null);
     Score score = new Score();
-    public static Joueur J1 = new Joueur(null, Couleur.GREEN, null);
-    public static Joueur J2 = new Joueur(null, Couleur.BLUE, null);
-    public static Joueur JIA = new Joueur("IA", Couleur.RED, null);
+    public static Joueur J1 = new Joueur(null, Couleur.GREEN, "@");
+    public static Joueur J2 = new Joueur(null, Couleur.BLUE, "#");
+    public static Joueur JIA = new Joueur("IA", Couleur.RED, "#");
     // Main =======================================================================================
     // ============================================================================================
     public static void main(String[] args) throws Exception {
@@ -140,8 +140,8 @@ public class App {
     public static void afficherMenuParam() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-- MENU PARAMETRES --");
-        menus.add("[1] Régler la couleur des pions du J1");
-        menus.add("[2] Régler la couleur des pions du J2");
+        menus.add("[1] Régler la couleur des pions");
+        menus.add("[2] Régler le symbole des pions");
         menus.add("[3] Menu Top 10");
         menus.add("[4] Retour");
         for (String menu : menus) {
@@ -149,18 +149,41 @@ public class App {
         }
     }
 
+    private static void menuCouleur() {
+        ArrayList<String> menus = new ArrayList<>();
+        menus.add("\n-[COULEUR PIONS]-");
+        menus.add("[1] Changer la couleur des pions du J1");
+        menus.add("[2] Changer la couleur des pions du J2");
+        menus.add("[3] Retour");
+        for (String menu : menus) {
+            System.out.println(menu);
+        }
+    }
 
     public static void parametres() throws IOException {
         afficherMenuParam();
         String choix = _scan.nextLine();
         switch(choix) {
             case "1":
-                System.out.println("\n-[ COULEUR PIONS JOUEUR 1 ]-");
-                Couleur.changeColors(J1);
-                break;
+                menuCouleur();
+                String choi = _scan.nextLine();
+                switch(choi){
+                    case "1":
+                        Couleur.changeColors(J1);
+                        break;
+                    case "2":
+                        Couleur.changeColors(J2);
+                        break;
+                    case "3":
+                        System.out.println("Retour");
+                        return;
+                    default:
+                        System.out.println("Aucune option correspondante. Veuillez réessayer.");
+                        break;
+                }
+            break;
             case "2":
-                System.out.println("\n-[ COULEUR PIONS JOUEUR 2 ]-");
-                Couleur.changeColors(J2);
+                Couleur.changeSymbols(J1, J2, JIA);
                 break;
             case "3":
                 liste();
@@ -200,6 +223,7 @@ public class App {
 
     // Liste =====================================================================================
     // ===========================================================================================
+    
     private static void menuListes() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-- MENU TOP 10 --");

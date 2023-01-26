@@ -29,6 +29,8 @@ public class Game {
         boolean endgame = false;
         String iaLV;
         String c1 = J1.getCouleur();
+        String s1 = J1.getSymbole();
+        String sIA = JIA.getSymbole();
         String d = Couleur.DEFO;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
         // compte le score des joueurs (nb de coup par joueurs)
@@ -57,10 +59,10 @@ public class Game {
 
 
         J1.setNom(c1 + nom1 + d);
-        J1.setSymbole(c1 + "@" + d);
+        J1.setSymbole(c1 + s1 + d);
 
         JIA.setNom(Couleur.RED + "IA" + Couleur.DEFO);
-        JIA.setSymbole(Couleur.RED + "#" + Couleur.DEFO);
+        JIA.setSymbole(Couleur.RED + sIA + Couleur.DEFO);
 
         // ça continue tant que personne n'a gagné
         while(!won){
@@ -129,6 +131,8 @@ public class Game {
         boolean endgame = false;
         String c1 = J1.getCouleur();
         String c2 = J2.getCouleur();
+        String s1 = J1.getSymbole();
+        String s2 = J2.getSymbole();
         String d = Couleur.DEFO;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
 
@@ -143,10 +147,10 @@ public class Game {
         String nom2 = _scan.nextLine();
 
         J1.setNom(c1 + nom1 + d);
-        J1.setSymbole(c1 + "@" + d);
+        J1.setSymbole(c1 + s1 + d);
 
         J2.setNom(c2 + nom2 + d);
-        J2.setSymbole(c2 + "#" + d);
+        J1.setSymbole(c1 + s2 + d);
 
         // ça continue tant que personne n'a gagné
         while(!won){
