@@ -186,13 +186,11 @@ public class Grid {
                 
                 if (li == 0){
                     if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole) && !g.get(li).get(col+3).equals(symbole2)){
-                        System.out.println("ligne=0");
                         return col+3;
                     }
                 }
                 else{
                     if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole) && !g.get(li).get(col+3).equals(symbole2) && !g.get(li-1).get(col+3).equals("-")){
-                        System.out.println("ligne>=1");
                         return col+3;
                     }
                 }
