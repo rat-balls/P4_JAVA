@@ -27,6 +27,7 @@ public class Game {
         boolean won = false;
         boolean turn = false;
         boolean endgame = false;
+        String iaLV;
         String c1 = J1.getCouleur();
         String d = Couleur.DEFO;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
@@ -34,18 +35,22 @@ public class Game {
         int J1t = 0;
         int JIAt = 0;
 
-        afficherMenuIA();
-        String iaLV = _scan.nextLine();
-        switch (iaLV) {
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-                break;
-            default:
-                System.out.println("Veuillez entrer un chiffre entre 1 et 4.");
-                break;
+        while(true){
+            afficherMenuIA();
+            iaLV = _scan.nextLine();
+            switch (iaLV) {
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                    break;
+                default:
+                    System.out.println("Veuillez entrer un chiffre entre 1 et 4.");
+                    continue;
+            }
+            break;
         }
+        
 
         System.out.println("Veuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
@@ -60,7 +65,6 @@ public class Game {
         // ça continue tant que personne n'a gagné
         while(!won){
             if(Grid.matchnul(g)){
-                System.out.println("endgame check");
                 endgame = true;
                 break;
             }
