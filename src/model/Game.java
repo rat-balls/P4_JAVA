@@ -177,7 +177,7 @@ public class Game {
     private static Scanner _scan = new Scanner(System.in);
 
     public static void enregistrer(String joueur, int score) throws IOException {
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("P4_JAVA/src/top10.csv", true)));
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("src/top10.csv", true)));
         try {
             pw.println(joueur + ";" + score);
         }

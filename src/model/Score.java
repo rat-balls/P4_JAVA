@@ -47,7 +47,7 @@ public class Score {
     public static ArrayList<Score> creerListe() {
         ArrayList<Score> list = new ArrayList<>();
         try {
-            BufferedReader br = new BufferedReader(new FileReader("P4_JAVA/src/top10.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("src/top10.csv"));
             String line = br.readLine();
             while (line != null) {
                 String[] data = line.split(";");
