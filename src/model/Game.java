@@ -8,10 +8,23 @@ import java.util.Scanner;
 
 
 public class Game {
+
+    public static void afficherMenuIA() {
+        ArrayList<String> menus = new ArrayList<>();
+        menus.add("\n-- Choisir le niveau de l'IA --");
+        menus.add("[1] Facile");
+        menus.add("[2] Moyen");
+        menus.add("[3] Difficile");
+        menus.add("[4] Impossible");
+        for (String menu : menus) {
+            System.out.println(menu);
+        }
+    }
     
     public static void startGame1P(Joueur J1, Joueur JIA) throws IOException, InterruptedException{
         boolean won = false;
         boolean turn = false;
+        boolean endgame = false;
         String c1 = J1.getCouleur();
         String d = Couleur.DEFO;
         ArrayList<ArrayList<String>> g = Grid.createGrid();
@@ -29,6 +42,18 @@ public class Game {
                 break;
             }
         }
+        afficherMenuIA();
+        String iaLV = _scan.nextLine();
+        switch (iaLV) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+                break;
+            default:
+                System.out.println("Veuillez entrer un chiffre entre 1 et 4.");
+                break;
+        }
         J1.setNom(c1 + nom1 + d);
         J1.setSymbole(c1 + "@" + d);
 
@@ -37,6 +62,11 @@ public class Game {
 
         // ça continue tant que personne n'a gagné
         while(!won){
+            if(Grid.matchnul(g)){
+                System.out.println("endgame check");
+                endgame = true;
+                break;
+            }
             if(!turn){
                 System.out.println();
                 System.out.println();
@@ -44,7 +74,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J1.getSymbole());
-                won = Grid.checkWin(g, J1.getSymbole());
+                won = Grid.checkWin(g, J1.getSymbole(), J1.getCouleur());
                 turn = true;
                 J1t += 1;
                 System.out.println();
@@ -52,13 +82,17 @@ public class Game {
                 // IA Turn
                 System.out.println();
                 Grid.affichage(g);
-                waitingInput();
                 System.out.println("Tour de l'" + JIA.getNom() + ".");
                 System.out.println();
                 Grid.affichage(g);
-                IA.IAmodif(g, JIA.getSymbole());
-                won = Grid.checkWin(g, JIA.getSymbole());
-                JIAt += 1;
+                if(iaLV.equals("1")){
+                    IA.IAmodif(g, JIA.getSymbole());
+                } else if(iaLV.equals("2")){
+                    IA.IAmodifLV2(g, J1.getSymbole(), JIA.getSymbole());
+                } else if (iaLV.equals("3")){
+                    IA.IAmodifLV3(g, J1.getSymbole(), JIA.getSymbole());
+                }
+                won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
                 turn = false;
             }
         }
@@ -79,6 +113,11 @@ public class Game {
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
         }
+
+        if(endgame){
+            Grid.affichage(g);
+            System.out.println("Match nul, personne n'a gagné. \ntro nul");
+        }
     }
 
     
@@ -86,6 +125,7 @@ public class Game {
     public static void startGame2P(Joueur J1, Joueur J2){
         boolean won = false;
         boolean turn = false;
+        boolean endgame = false;
         String c1 = J1.getCouleur();
         String c2 = J2.getCouleur();
         String d = Couleur.DEFO;
@@ -110,13 +150,18 @@ public class Game {
         // ça continue tant que personne n'a gagné
         while(!won){
             if(!turn){
+                if(Grid.matchnul(g)){
+                    System.out.println("endgame check");
+                    endgame = true;
+                    break;
+                }
                 System.out.println();
                 System.out.println();
                 System.out.println(J1.getNom() + ", veuillez sélectionner une colonne: ");
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J1.getSymbole());
-                won = Grid.checkWin(g, J1.getSymbole());
+                won = Grid.checkWin(g, J1.getSymbole(), J1.getCouleur());
                 turn = true;
                 J1t += 1;
                 System.out.println();
@@ -127,7 +172,7 @@ public class Game {
                 System.out.println();
                 Grid.affichage(g);
                 Grid.modif(g, "", J2.getSymbole());
-                won = Grid.checkWin(g, J2.getSymbole());
+                won = Grid.checkWin(g, J2.getSymbole(), J2.getCouleur());
                 turn = false;
                 J2t += 1;
                 System.out.println();
@@ -146,6 +191,11 @@ public class Game {
             }
             Grid.affichage(g);
             System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
+        }
+
+        if(endgame){
+            Grid.affichage(g);
+            System.out.println("Match nul, personne n'a gagné. (tro nul)");
         }
     }
 

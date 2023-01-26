@@ -11,9 +11,9 @@ import model.Game;
 public class App {
     Joueur joueur = new Joueur(null, null, null);
     Score score = new Score();
-    public static Joueur J1 = new Joueur(null, Couleur.DEFO, null);
-    public static Joueur J2 = new Joueur(null, Couleur.DEFO, null);
-    public static Joueur JIA = new Joueur("IA", Couleur.DEFO, null);
+    public static Joueur J1 = new Joueur(null, Couleur.GREEN, null);
+    public static Joueur J2 = new Joueur(null, Couleur.BLUE, null);
+    public static Joueur JIA = new Joueur("IA", Couleur.RED, null);
     // Main =======================================================================================
     // ============================================================================================
     public static void main(String[] args) throws Exception {
