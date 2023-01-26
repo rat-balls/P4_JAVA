@@ -59,10 +59,8 @@ public class Game {
                 // IA Turn
                 System.out.println();
                 Grid.affichage(g);
-                Thread.sleep(1000);
                 System.out.println("Tour de l'" + JIA.getNom() + ".");
                 System.out.println();
-                Thread.sleep(1000);
                 Grid.affichage(g);
                 if(iaLV.equals("1")){
                     IA.IAmodif(g, JIA.getSymbole());

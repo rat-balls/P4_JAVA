@@ -49,7 +49,6 @@ public class IA {
         if (Grid.anticipation(g,symbole,symbole2) > 0){
             int coor = Grid.anticipation(g,symbole,symbole2)+1;
             System.out.println(coor);
-            System.out.println("yes");
             int li;
             for(li = 5; li > 0 ; li -- ){
                 if((g.get(li).get(coor-1)) == "-" ){
@@ -62,7 +61,6 @@ public class IA {
             g.get(li).set(coor-1, symbole2);
             return g;
         }else{
-            System.out.println("test");
             int coor = (int)(Math.random() * 7+1);
             int li;
             for(li = 5; li > 0 ; li -- ){
