@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
-
 public class Game {
     
     public static void startGame1P(Joueur J1, Joueur JIA) throws IOException, InterruptedException{
@@ -20,10 +18,17 @@ public class Game {
         // compte le score des joueurs (nb de coup par joueurs)
         int J1t = 0;
         int JIAt = 0;
-
         System.out.println("Veuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
-        
+        while (true) {
+            if (nom1.equals("")){
+                System.out.println("Veuillez entrer un nom valide :");
+                nom1 = _scan.nextLine();
+            }
+            else {
+                break;
+            }
+        }
         J1.setNom(c1 + nom1 + d);
         J1.setSymbole(c1 + "@" + d);
 
@@ -47,10 +52,9 @@ public class Game {
                 // IA Turn
                 System.out.println();
                 Grid.affichage(g);
-                Thread.sleep(1000);
+                waitingInput();
                 System.out.println("Tour de l'" + JIA.getNom() + ".");
                 System.out.println();
-                Thread.sleep(1000);
                 Grid.affichage(g);
                 IA.IAmodif(g, JIA.getSymbole());
                 won = Grid.checkWin(g, JIA.getSymbole());
@@ -148,13 +152,18 @@ public class Game {
     private static Scanner _scan = new Scanner(System.in);
 
     public static void enregistrer(String joueur, int score) throws IOException {
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("P4_JAVA/src/top10.csv", true)));
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("src/top10.csv", true)));
         try {
             pw.println(joueur + ";" + score);
         }
         finally {
             pw.close();
         }
+    }
+
+    public static void waitingInput() {
+        System.out.println("Appuyez sur Entrée pour continuer...");
+        _scan.nextLine();
     }
 }
 
