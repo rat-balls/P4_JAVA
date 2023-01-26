@@ -179,6 +179,96 @@ public class Grid {
         
     }
 
+    public static int anticipationNiv2(ArrayList<ArrayList<String>> g, String symbole, String symbole2){
+        // check horizontal
+        for (int li = 0; li < 6; li++){
+            for (int col = 0; col < 4; col++){
+                
+                if (li == 0){
+                    if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole) && !g.get(li).get(col+3).equals(symbole2)){
+                        System.out.println("ligne=0");
+                        return col+3;
+                    }
+                }
+                else{
+                    if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole) && !g.get(li).get(col+3).equals(symbole2) && !g.get(li-1).get(col+3).equals("-")){
+                        System.out.println("ligne>=1");
+                        return col+3;
+                    }
+                }
+            }
+        }
+        // check vertical
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 7; col++) {
+                if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col).equals(symbole) && g.get(li+2).get(col).equals(symbole) && !g.get(li+3).get(col).equals(symbole2)){
+                    if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col).equals(symbole) && g.get(li+2).get(col).equals(symbole)){
+                        return col;
+                    }
+                }
+            }
+        }
+        // check diagonal
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 4; col++) {
+                if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col+1).equals(symbole) && g.get(li+2).get(col+2).equals(symbole) && !g.get(li+3).get(col+3).equals(symbole2) && !g.get(li+2).get(col+3).equals("-")){
+
+                    System.out.println("diagonal");
+                    if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col+1).equals(symbole) && g.get(li+2).get(col+2).equals(symbole)){
+                        return col+3;
+                    }
+                }
+            }
+        }
+        for (int li = 0; li < 3; li++) {
+            for (int col = 3; col < 7; col++) {
+                if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col-1).equals(symbole) && g.get(li+2).get(col-2).equals(symbole) && !g.get(li+3).get(col-3).equals(symbole2) && !g.get(li-2).get(col+3).equals("-")){
+                    System.out.println("diagonal");
+                    if (g.get(li).get(col).equals(symbole) && g.get(li+1).get(col-1).equals(symbole) && g.get(li+2).get(col-2).equals(symbole)){
+                        return col-3;
+                    }
+                }   
+            }
+        }
+        return -1;
+        
+    }
+
+    public static boolean checkWinIA(ArrayList<ArrayList<String>> g, String symboleIA){
+        // check horizontal
+        for (int li = 0; li < 6; li++) {
+            for (int col = 0; col < 4; col++) {
+                if (g.get(li).get(col) .equals(symboleIA) && g.get(li).get(col+1).equals(symboleIA) && g.get(li).get(col+2).equals(symboleIA) && g.get(li).get(col+3).equals(symboleIA)){
+                    return true;
+                }
+            }
+        }
+        // check vertical
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 7; col++) {
+                if (g.get(li).get(col).equals(symboleIA) && g.get(li+1).get(col).equals(symboleIA) && g.get(li+2).get(col).equals(symboleIA) && g.get(li+3).get(col).equals(symboleIA)){
+                    return true;
+                }
+            }
+        }
+        // check diagonal
+        for (int li = 0; li < 3; li++) {
+            for (int col = 0; col < 4; col++) {
+                if (g.get(li).get(col).equals(symboleIA) && g.get(li+1).get(col+1).equals(symboleIA) && g.get(li+2).get(col+2).equals(symboleIA) && g.get(li+3).get(col+3).equals(symboleIA)){
+                    return true;
+                }
+            }
+        }
+        for (int li = 0; li < 3; li++) {
+            for (int col = 3; col < 7; col++) {
+                if (g.get(li).get(col).equals(symboleIA) && g.get(li+1).get(col-1).equals(symboleIA) && g.get(li+2).get(col-2).equals(symboleIA) && g.get(li+3).get(col-3).equals(symboleIA)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static boolean matchnul (ArrayList<ArrayList<String>> g){
         boolean endgame = true;
         for (int col = 0; col < 7; col++) {

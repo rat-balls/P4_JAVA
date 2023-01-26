@@ -49,6 +49,7 @@ public class IA {
         if (Grid.anticipation(g,symbole,symbole2) > 0){
             int coor = Grid.anticipation(g,symbole,symbole2)+1;
             System.out.println(coor);
+            System.out.println("yes");
             int li;
             for(li = 5; li > 0 ; li -- ){
                 if((g.get(li).get(coor-1)) == "-" ){
@@ -61,6 +62,7 @@ public class IA {
             g.get(li).set(coor-1, symbole2);
             return g;
         }else{
+            System.out.println("test");
             int coor = (int)(Math.random() * 7+1);
             int li;
             for(li = 5; li > 0 ; li -- ){
@@ -71,6 +73,44 @@ public class IA {
                 }
                 if(li == 0 || !g.get(li).contains("-")){
                     return IAmodifLV2(g,symbole,symbole2);
+                }
+            }
+            g.get(li).set(coor-1, symbole2);
+        }
+        
+        return g;
+
+    }
+
+    
+    public static ArrayList<ArrayList<String>> IAmodifLV3(ArrayList<ArrayList<String>>g, String symbole, String symbole2){
+        if (Grid.anticipationNiv2(g,symbole,symbole2) > 0){
+            int coor = Grid.anticipationNiv2(g,symbole,symbole2)+1;
+            System.out.println(coor);
+            System.out.println("yes");
+            int li;
+            for(li = 5; li > 0 ; li -- ){
+                if((g.get(li).get(coor-1)).equals("-") ){
+                    if(!(g.get(li-1).get(coor-1)).equals("-")){
+                        break;
+                    }
+                }
+            }
+    
+            g.get(li).set(coor-1, symbole2);
+            return g;
+        }else{
+            System.out.println("test");
+            int coor = (int)(Math.random() * 7+1);
+            int li;
+            for(li = 5; li > 0 ; li -- ){
+                if((g.get(li).get(coor-1)).equals("-")){
+                    if(!(g.get(li-1).get(coor-1)).equals("-")){
+                        break;
+                    }
+                }
+                if(li == 0 || !g.get(li).contains("-")){
+                    return IAmodifLV3(g,symbole,symbole2);
                 }
             }
             g.get(li).set(coor-1, symbole2);

@@ -10,6 +10,18 @@ import java.util.Scanner;
 
 
 public class Game {
+
+    public static void afficherMenuIA() {
+        ArrayList<String> menus = new ArrayList<>();
+        menus.add("\n-- Choisir le niveau de l'IA --");
+        menus.add("[1] Facile");
+        menus.add("[2] Moyen");
+        menus.add("[3] Difficile");
+        menus.add("[4] Impossible");
+        for (String menu : menus) {
+            System.out.println(menu);
+        }
+    }
     
     public static void startGame1P(Joueur J1, Joueur JIA) throws IOException, InterruptedException{
         boolean won = false;
@@ -22,13 +34,21 @@ public class Game {
         int J1t = 0;
         int JIAt = 0;
 
+        afficherMenuIA();
+        String iaLV = _scan.nextLine();
+        switch (iaLV) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+                break;
+            default:
+                System.out.println("Veuillez entrer un chiffre entre 1 et 4.");
+                break;
+        }
+
         System.out.println("Veuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
-        
-        System.out.println("Veuillez choisir le niveau de l'IA: ");
-        System.out.println("[1] Facile");
-        System.out.println("[2] Moyen");
-        String iaLV = _scan.nextLine();
 
 
         J1.setNom(c1 + nom1 + d);
@@ -66,6 +86,8 @@ public class Game {
                     IA.IAmodif(g, JIA.getSymbole());
                 } else if(iaLV.equals("2")){
                     IA.IAmodifLV2(g, J1.getSymbole(), JIA.getSymbole());
+                } else if (iaLV.equals("3")){
+                    IA.IAmodifLV3(g, J1.getSymbole(), JIA.getSymbole());
                 }
                 won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
                 turn = false;
@@ -170,7 +192,7 @@ public class Game {
 
         if(endgame){
             Grid.affichage(g);
-            System.out.println("match nul, personne n'a gagné");
+            System.out.println("Match nul, personne n'a gagné. (tro nul)");
         }
     }
 
