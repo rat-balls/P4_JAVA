@@ -52,7 +52,7 @@ public class Game {
         }
         
 
-        System.out.println("Veuillez entrer votre nom: ");
+        System.out.println("\nVeuillez entrer votre nom: ");
         String nom1 = _scan.nextLine();
 
 
@@ -136,7 +136,7 @@ public class Game {
         int J1t = 0;
         int J2t = 0;
 
-        System.out.println("Veuillez entrer le nom du Joueur 1: ");
+        System.out.println("\nVeuillez entrer le nom du Joueur 1: ");
         String nom1 = _scan.nextLine();
         
         System.out.println("\nVeuillez entrer le nom du Joueur 2: ");
@@ -152,7 +152,6 @@ public class Game {
         while(!won){
             if(!turn){
                 if(Grid.matchnul(g)){
-                    System.out.println("endgame check");
                     endgame = true;
                     break;
                 }
@@ -191,12 +190,12 @@ public class Game {
                 score = J2t;
             }
             Grid.affichage(g);
-            System.out.println("Bien joué, " + winner + ", vous avez gagné en " + score + " coups !");
+            System.out.println("\nBien joué, " + winner + ", vous avez gagné en " + score + " coups !");
         }
 
         if(endgame){
             Grid.affichage(g);
-            System.out.println("Match nul, personne n'a gagné. (tro nul)");
+            System.out.println("\nMatch nul, personne n'a gagné. (tro nul)");
         }
     }
 
