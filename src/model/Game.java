@@ -95,6 +95,8 @@ public class Game {
                     IA.IAmodifLV2(g, J1.getSymbole(), JIA.getSymbole());
                 } else if (iaLV.equals("3")){
                     IA.IAmodifLV3(g, J1.getSymbole(), JIA.getSymbole());
+                } else if (iaLV.equals("4")){
+                    IA.IAmodifLV4(g, J1.getSymbole(), JIA.getSymbole());
                 }
                 Grid.affichage(g);
                 won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
