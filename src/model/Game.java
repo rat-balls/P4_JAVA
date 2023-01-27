@@ -65,6 +65,7 @@ public class Game {
         JIA.setSymbole(Couleur.RED + sIA + Couleur.DEFO);
 
         // ça continue tant que personne n'a gagné
+        Grid.affichage(g);
         while(!won){
             if(Grid.matchnul(g)){
                 endgame = true;
@@ -75,8 +76,8 @@ public class Game {
                 System.out.println();
                 System.out.println(J1.getNom() + ", veuillez sélectionner une colonne: ");
                 System.out.println();
-                Grid.affichage(g);
                 Grid.modif(g, "", J1.getSymbole());
+                Grid.affichage(g);
                 won = Grid.checkWin(g, J1.getSymbole(), J1.getCouleur());
                 turn = true;
                 J1t += 1;
@@ -84,10 +85,10 @@ public class Game {
             } else {
                 // IA Turn
                 System.out.println();
-                Grid.affichage(g);
                 System.out.println("Tour de l'" + JIA.getNom() + ".");
                 System.out.println();
-                Grid.affichage(g);
+                System.out.println("Appuyez sur entrer pour continuer.");
+                _scan.nextLine();
                 if(iaLV.equals("1")){
                     IA.IAmodif(g, JIA.getSymbole());
                 } else if(iaLV.equals("2")){
@@ -95,6 +96,7 @@ public class Game {
                 } else if (iaLV.equals("3")){
                     IA.IAmodifLV3(g, J1.getSymbole(), JIA.getSymbole());
                 }
+                Grid.affichage(g);
                 won = Grid.checkWin(g, JIA.getSymbole(), JIA.getCouleur());
                 turn = false;
             }
