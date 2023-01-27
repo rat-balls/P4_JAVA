@@ -27,6 +27,7 @@ public class Game {
         System.out.println("[1] Facile");
         System.out.println("[2] Intermédiaire");
         System.out.println("[3] Moyen");
+        System.out.println("[4] Difficile");
         String iaLV = _scan.nextLine();
 
         // ça continue tant que personne n'a gagné
@@ -53,6 +54,8 @@ public class Game {
                     IA.IAmodifLV2(g, J1.getSymbole(), JIA.getSymbole());
                 } else if (iaLV.equals("3")){
                     IA.IAmodifLV3(g, J1.getSymbole(), JIA.getSymbole());
+                } else if (iaLV.equals("4")){
+                    IA.IAmodifLV4(g, J1.getSymbole(), JIA.getSymbole());
                 }
 
                 
