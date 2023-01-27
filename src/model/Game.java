@@ -150,7 +150,7 @@ public class Game {
         J1.setSymbole(c1 + s1 + d);
 
         J2.setNom(c2 + nom2 + d);
-        J1.setSymbole(c1 + s2 + d);
+        J2.setSymbole(c2 + s2 + d);
 
         // ça continue tant que personne n'a gagné
         while(!won){

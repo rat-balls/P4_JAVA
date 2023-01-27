@@ -44,33 +44,39 @@ public class Couleur {
     }
 
     public static void changeSymbols(Joueur J1, Joueur J2, Joueur JIA){
-        afficherSymboles();
-        String choix = _scan.nextLine();
-        switch (choix) {
-            case "1":
-                System.out.println("@ et # sélectionnés");
-                J1.setSymbole("@");
-                J2.setSymbole("#");
-                JIA.setSymbole("#");
-                break;
-            case "2":
-                System.out.println("O et X sélectionnés");
-                J1.setSymbole("O");
-                J2.setSymbole("X");
-                JIA.setSymbole("X");
-                break;
-            case "3":
-                System.out.println("! et ? sélectionnés");
-                J1.setSymbole("!");
-                J2.setSymbole("?");
-                JIA.setSymbole("?");
-                break;
-            case "4":
-                System.out.println(":D et :C sélectionnés");
-                J1.setSymbole(":D");
-                J2.setSymbole(":C");
-                JIA.setSymbole(":C");
-                break;
+        while(true){
+            afficherSymboles();
+            String choix = _scan.nextLine();
+            switch (choix) {
+                case "1":
+                    System.out.println("@ et # sélectionnés");
+                    J1.setSymbole("@");
+                    J2.setSymbole("#");
+                    JIA.setSymbole("#");
+                    break;
+                case "2":
+                    System.out.println("O et X sélectionnés");
+                    J1.setSymbole("O");
+                    J2.setSymbole("X");
+                    JIA.setSymbole("X");
+                    break;
+                case "3":
+                    System.out.println("! et ? sélectionnés");
+                    J1.setSymbole("!");
+                    J2.setSymbole("?");
+                    JIA.setSymbole("?");
+                    break;
+                case "4":
+                    System.out.println(":D et :C sélectionnés");
+                    J1.setSymbole(":D");
+                    J2.setSymbole(":C");
+                    JIA.setSymbole(":C");
+                    break;
+                default:
+                    System.out.println("\nVeuillez entrer une option valide.");
+                    continue;
+            }
+            break;
         }
     }
 

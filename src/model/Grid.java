@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import javax.xml.transform.Source;
 
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
 public class Grid {
@@ -34,7 +35,7 @@ public class Grid {
     
     public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, String symbole){
         System.out.println(message);
-        String err1 = "Veulliez entrer une colonne valide";
+        String err1 = "Veuillez entrer une colonne valide.";
         String err2 = "Veuillez entrer un chiffre.\nPas une lettre ou un nombre.\nbozo";
         int coor = 0;
         boolean error = true;
@@ -51,10 +52,19 @@ public class Grid {
             }
         }
 
+        if(coor < 1 || coor > 7) {
+            return modif(g, err1, symbole);
+        }
+
         int li;
+
+        if(!(g.get(5).get(coor-1)).equals("-")){
+            return modif(g, err1, symbole);
+        }
         
         for(li = 5; li > 0 ; li -- ){
             if((g.get(li).get(coor-1)).equals("-")){
+                
                 if(!(g.get(li-1).get(coor-1)).equals("-")){
                     break;
                 }
@@ -62,11 +72,6 @@ public class Grid {
             if(li == 0 || !g.get(li).contains("-")){
                 return modif(g, err1, symbole);
             }
-        }
-        
-        if(coor < 1 || coor > 7) {
-            System.out.println(err1);
-            return modif(g, err1, symbole);
         }
 
         g.get(li).set(coor-1, symbole);
