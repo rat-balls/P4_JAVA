@@ -42,6 +42,18 @@ Pour apporter des modifications à la grille Amin écrit les bases d'une modific
 `modif(ArrayList<ArrayList<String>> g, String message, String symbole)`<br>
 Comme pour `affichage()`, `modif()`prends en paramètres : une grille. Mais aussi un message et un symbole, le message correspond au message d'erreur en cas de mauvais input (pas un chiffre, chiffre négatif, chiffre trop grand), et symbole qui correspond à l'apparence du pion. La fonction par cours la grille avec 2 boucles for, remplace libre de la colone designer par le jour avec son symbole.
 
+Sacha s'est occupé de l'affichage des menus, de leurs différentes interactions entre eux et surtout de l'écriture / lecture dans un fichier .csv des scores des gagnants de chaque partie de Puissance 4, que ce soit contre une IA ou en joueur contre joueur.
+`enregistrer(nom,score)` sert à, comme son nom l'indique, enregistrer un score et le nom associé dans le fichier `top10.csv`. Cette méthode séparera les deux chaînes de caractères d'un ";" afin de pouvoir les séparer plus facilement à l'aide d'une regex lorsqu'on voudra retourner le top 10 grâce aux la méthodes suivantes.
+
+`creerListe()` et `listeOrdre()` sont deux méthodes qui serviront à renvoyer une liste de chaînes de caractères pour but de les afficher plus tard. `creerListe()` crééra une liste constituée des lignes du fichier `top10.csv` où chaque élément sera délimité à partir d'un ";" ou par un passage à la ligne suivante. La méthode crééra ensuite des objets de type "Joueur" et "Score" où l'on stockera nom et score dans chacun des objets et où l'on ajoutera ces-derniers dans la liste. `listeOrdre()`, elle, servira à ordonner la liste créée via `creerListe()` dans l'ordre croissant de tous les scores et des joueurs y étant attachés.
+
+`afficherListe()` permettra d'appeler la liste une fois ordonnée par la méthode `listeOrdre()` et d'afficher les éléments un à un en les mettant dans le contexte du top. Soit : "[place du joueur] - [nom du joueur] : [score du joueur]".
+Si la liste est vide, la méthode affichera "Aucun score enregistré", et si la taille de la liste est inférieure à dix, elle affichera : "Top [longueur de la liste] des meilleurs scores :". Autrement, elle n'affichera tout le temps que les 10 meilleurs scores.
+
+[Fonctionnalité supplémentaire] `supprListe()` est une méthode qui permet de récupérer le fichier `top10.csv`, de le supprimer, et d'en créer un nouveau du même nom; en somme, il permet de réinitialiser la liste.
+
+
+
 ## IA
 
 Tristan c'est ensuite occupé de la partie IA, en reprenant la méthode `modif` il a au début fait une autre méthode `IAmodif` qui prends en paramètre `ArrayList<ArrayList<String>> g, String symbole` ce qui est exactement la même chose que pour `modif` sauf que le message a été retiré car l'IA au niveau 1 cherche seulement une colonne aléatoire pour placer son pion.

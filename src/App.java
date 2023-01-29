@@ -16,6 +16,11 @@ public class App {
     public static Joueur JIA = new Joueur("IA", Couleur.RED, "#");
     // Main =======================================================================================
     // ============================================================================================
+    /**
+     * @param args
+     * @throws Exception
+     * Fonction principale du programme
+     */
     public static void main(String[] args) throws Exception {
         while(true) {
             afficherMenu();
@@ -62,6 +67,9 @@ public class App {
 
     // Menus pour Jouer ===========================================================================
     // ============================================================================================
+    /**
+     * Créé un menu affichant les options de jeu
+     */
     public static void afficherMenuJeu() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-- MENU JEU --");
@@ -74,6 +82,11 @@ public class App {
     }
 
 
+    /**
+     * @throws IOException
+     * @throws InterruptedException
+     * Créé un menu affichant les options de jeu
+     */
     public static void jouer() throws IOException, InterruptedException {
         afficherMenuJeu();
         String choix = _scan.nextLine();
@@ -96,6 +109,9 @@ public class App {
     }
 
 
+    /**
+     * Créé un menu affichant les différents niveaux de l'IA
+     */
     public static void afficherMenuIA() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-- MENU CONTRE IA --");
@@ -109,6 +125,9 @@ public class App {
         }
     }
 
+    /**
+     * Affichage test du résultat de la sélection de l'option du menu précédent
+     */
     public static void versusIA() {
         afficherMenuIA();
         String choix = _scan.nextLine();
@@ -137,6 +156,9 @@ public class App {
 
     // Menus des paramètres =======================================================================
     // ============================================================================================
+    /**
+     * Créé un menu affichant tous les paramètres du jeu
+     */
     public static void afficherMenuParam() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-- MENU PARAMETRES --");
@@ -149,6 +171,9 @@ public class App {
         }
     }
 
+    /**
+     * Créé une liste permettant de choisir quels pions doit-on changer de couleur
+     */
     private static void menuCouleur() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-[COULEUR PIONS]-");
@@ -160,6 +185,10 @@ public class App {
         }
     }
 
+    /**
+     * @throws IOException
+     * Créé un menu pour changer les couleurs des pions
+     */
     public static void parametres() throws IOException {
         afficherMenuParam();
         String choix = _scan.nextLine();
@@ -224,6 +253,9 @@ public class App {
     // Liste =====================================================================================
     // ===========================================================================================
     
+    /**
+     * Créé un menu contenant les options concernant la liste des scores
+     */
     private static void menuListes() {
         ArrayList<String> menus = new ArrayList<>();
         menus.add("\n-- MENU TOP 10 --");
@@ -235,6 +267,10 @@ public class App {
         }
     }
 
+    /**
+     * @throws IOException
+     * Créé un menu qui permet de choisir entre afficher la liste des scores ou la supprimer
+     */
     public static void liste() throws IOException {
         menuListes();
         String choix = _scan.nextLine();
@@ -255,6 +291,9 @@ public class App {
     }
 
 
+    /**
+     * Affiche la liste des scores
+     */
     private static void afficherListe() {
         ArrayList<Score> list = Score.listeOrdre();
         if (list.size() >= 10) {
@@ -274,6 +313,10 @@ public class App {
         }
     }
 
+    /**
+     * @throws IOException
+     * Supprime le fichier contenant la liste des scores
+     */
     public static void supprimerListe() throws IOException {
         File file = new File("src/top10.csv");
         if (file.delete()) {
