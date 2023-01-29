@@ -129,7 +129,7 @@ public class Game {
 
     
 
-    public static void startGame2P(Joueur J1, Joueur J2){
+    public static void startGame2P(Joueur J1, Joueur J2) throws IOException{
         boolean won = false;
         boolean turn = false;
         boolean endgame = false;
@@ -189,13 +189,18 @@ public class Game {
 
         if(won){
             String winner;
+            String nomASave;
             int score;
             if(turn){
                 winner = J1.getNom();
                 score = J1t;
+                nomASave = nom1;
+                enregistrer(nomASave, score);
             } else {
                 winner = J2.getNom();
                 score = J2t;
+                nomASave = nom2;
+                enregistrer(nomASave, score);
             }
             Grid.affichage(g);
             System.out.println("\nBien joué, " + winner + ", vous avez gagné en " + score + " coups !");

@@ -229,20 +229,20 @@ public class Grid {
 
     
     
-        public static int anticipationNiv2(ArrayList<ArrayList<String>> g, String symbole, String symbole2){
-            // check horizontal
-            System.out.println("check horizontal");
-            for (int li = 0; li < 6; li++){
-                for (int col = 0; col < 4; col++){
-                    if (li == 0){
-                        System.out.println("test1");
-                        if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole) && !g.get(li).get(col+3).equals(symbole2) && !g.get(li).get(col+3).equals("-")){
-                            System.out.println("horz 1");
-                            return col+3;
-                        } else if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+3).equals(symbole) && !g.get(li).get(col+2).equals(symbole2) && !g.get(li).get(col+2).equals("-")){
-                            System.out.println("horz 2");
-                            return col+2;
-                        } else if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+2).equals(symbole) && g.get(li).get(col+3).equals(symbole) && !g.get(li).get(col+1).equals(symbole2) && !g.get(li).get(col+1).equals("-")){
+    public static int anticipationNiv2(ArrayList<ArrayList<String>> g, String symbole, String symbole2){
+        // check horizontal
+        System.out.println("check horizontal");
+        for (int li = 0; li < 6; li++){
+            for (int col = 0; col < 4; col++){
+                if (li == 0){
+                    System.out.println("test1");
+                    if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+2).equals(symbole) && !g.get(li).get(col+3).equals(symbole2) && !g.get(li).get(col+3).equals("-")){
+                        System.out.println("horz 1");
+                        return col+3;
+                    } else if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+1).equals(symbole) && g.get(li).get(col+3).equals(symbole) && !g.get(li).get(col+2).equals(symbole2) && !g.get(li).get(col+2).equals("-")){
+                        System.out.println("horz 2");
+                        return col+2;
+                    } else if (g.get(li).get(col).equals(symbole) && g.get(li).get(col+2).equals(symbole) && g.get(li).get(col+3).equals(symbole) && !g.get(li).get(col+1).equals(symbole2) && !g.get(li).get(col+1).equals("-")){
                             System.out.println("horz 3");
                             return col+1;
                         }
