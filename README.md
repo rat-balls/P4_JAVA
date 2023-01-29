@@ -69,3 +69,12 @@ Pour finir on à la méthode `Anticipationniv3` qui est un copié collé de l'an
 Enfin nous avons la méthode `checkWinIA` qui est la même chose que le checkWin mais pour l'ia et elle retourne true ou false
 
 Par la suite nous avons mis dans IA.java la méthode `IAmodif4` qui est la méthode appelée pour jouer le coup de l'ia, si le `checkWinIA` est vrai alors la méthode le coup jouer sera le résultat de l'Anticipationniv3 sinon si le résultat de la méthode `anticipationniv2` est différent de -1 alors la colonne jouer est le résultat de anticipation niv2 sinon c‘est une colonne aléatoire.
+
+## Menu et rythme du jeu
+
+Ethan s'est occupé d'intégrer les fonctions de ses camarades et de les faire marcher en tandem dans un fichier `Game.java` pour créer un jeu fonctionnel.
+Il a créé les classes et a pris en charge leurs intégrations dans le projet.
+
+## Couleur
+
+La classe `Couleur.java` a d'abord été créée par Amin, puis ensuite utilisée par Ethan pour créer les fonctions de changement de couleurs dans les paramètres (`Couleur.changeColors(J)`) ainsi qu'en fin de partie (`Grid.checkWin()`). Les variables de la classe couleurs sont des Strings définis de manière finale contenant les codes couleurs reconnus par le terminal de Java. Les fonctions de changement de couleurs entourent donc les symboles et les noms des Joueurs lors de leur initialisation pour ne pas avoir à répéter le code couleur à chaque appel du symbole ou du nom.
