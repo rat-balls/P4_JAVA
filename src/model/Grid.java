@@ -1,8 +1,6 @@
 package model;
 import java.util.Scanner;
 
-import javax.xml.transform.Source;
-
 import java.util.ArrayList;
 
 public class Grid {
@@ -35,7 +33,7 @@ public class Grid {
     public static ArrayList<ArrayList<String>> modif(ArrayList<ArrayList<String>> g, String message, String symbole){
         System.out.println(message);
         String err1 = "Veulliez entrer une colonne valide";
-        String err2 = "Veuillez entrer un chiffre.\nPas une lettre ou un nombre.\nbozo";
+        String err2 = "Veuillez entrer un chiffre.\nPas une lettre ou un nombre.";
         int coor = 0;
         boolean error = true;
 

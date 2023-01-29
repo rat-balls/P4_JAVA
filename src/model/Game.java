@@ -43,17 +43,20 @@ public class Game {
                 break;
             }
         }
-        afficherMenuIA();
-        iaLV = _scan.nextLine();
-        switch (iaLV) {
-            case "1":
-            case "2":
-            case "3":
-            case "4":
-                break;
-            default:
-                System.out.println("Veuillez entrer un chiffre entre 1 et 4.");
-                break;
+        while(true){
+            afficherMenuIA();
+            iaLV = _scan.nextLine();
+            switch (iaLV) {
+                case "1":
+                case "2":
+                case "3":
+                case "4":
+                    break;
+                default:
+                    System.out.println("Veuillez entrer un chiffre entre 1 et 4.");
+                    continue;
+                }
+            break;
         }
         J1.setNom(c1 + nom1 + d);
         J1.setSymbole(c1 + "@" + d);
@@ -116,7 +119,7 @@ public class Game {
 
         if(endgame){
             Grid.affichage(g);
-            System.out.println("Match nul, personne n'a gagné. \ntro nul");
+            System.out.println("Match nul.");
         }
     }
 

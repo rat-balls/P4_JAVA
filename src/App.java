@@ -198,7 +198,7 @@ public class App {
     // ============================================================================================
 
 
-    
+
 
     // Liste =====================================================================================
     // ===========================================================================================
@@ -253,13 +253,13 @@ public class App {
     }
 
     public static void supprimerListe() throws IOException {
-        File file = new File("P4_JAVA/src/top10.csv");
+        File file = new File("src/top10.csv");
         if (file.delete()) {
-            System.out.println("Le fichier a été supprimé");
-            File newFile = new File("P4_JAVA/src/top10.csv");
+            System.out.println("Le fichier a été supprimé.");
+            File newFile = new File("src/top10.csv");
             try {
                 if (newFile.createNewFile()) {
-                    System.out.println("File created: " + newFile.getName());
+                    System.out.println("Fichier créé avec succès: " + newFile.getName());
                 } else {
                     System.out.println("Une erreur est survenue.");
                 }
